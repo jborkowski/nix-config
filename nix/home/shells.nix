@@ -17,18 +17,78 @@ in
     exa
     aria
     nodePackages.castnow
+    direnv
   ];
 
   programs.broot = {
     enable = true;
     enableBashIntegration = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
   };
 
-  programs.fish = {
+  programs.zsh = rec {
     enable = true;
-    inherit shellAliases;
+    dotDir = ".config/zsh";
+    enableCompletion = false;
+    enableAutosuggestions = true;
+
+    history = {
+      size = 50000000;
+      save = 50000000;
+      path = "${dotDir}/history";
+      ignoreDups = true;
+      share = true;
+    };
+
+    shellAliases = {
+      vim = "nvim";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = ["git" "rbenv" "gitignore" "sbt" "scala" "mvn" "cp" "history" "rsync" "vagrant" ];
+    };
+
+    plugins = [
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-autosuggestions";
+          rev = "v0.4.0";
+          sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
+        };
+      }
+    ];
+
+    localVariables = {
+      # PATH="$HOME/.local/bin:/usr/local/bin:$PATH"; VISUAL=nvim
+    };
+
+    # interactiveShellInit = ''
+
+    #   export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+
+
+    #   [[ -z $ZSH_TMUX_AUTOSTART ]] && ZSH_TMUX_AUTOSTART=true
+    #   #ZSH_TMUX_AUTOSTART=true
+    #   ZSH_TMUX_AUTOQUIT=false
+    #   ZSH_TMUX_AUTOCONNECT=false
+
+
+    #   eval "$(direnv hook zsh)"
+
+    #   export VISUAL=nvim
+    #   alias vim=nvim
+    #   export NIX_IGNORE_SYMLINK_STORE=1
+    #   export PATH=$PATH:/nix/var/nix/profiles/default/bin
+    #   #. $HOME/.nix-profile/etc/profile.d/nix.sh
+    # '';
+
+      # export NIX_PATH=$HOME/.nix-defexpr/channels'${NIX_PATH:+:}'$NIX_PATH
   };
+  
 
   programs.bash = {
     enable = true;
@@ -47,5 +107,17 @@ in
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
+    enableZshIntegration  = true;
   };
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration  = true;
+  };
+
+  programs.jq = {
+    enable = true;
+  };
+
 }
