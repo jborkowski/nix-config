@@ -1,50 +1,7 @@
 { pkgs }:
 
 with pkgs; let exe = haskell.lib.justStaticExecutables; in [
-  coreutils
 
-  # gitToolsEnv
-  diffstat
-  diffutils
-  gist
-  git-lfs
-  gitRepo
-  gitAndTools.git-crypt
-  gitAndTools.git-hub
-  gitAndTools.git-imerge
-  gitAndTools.gitFull
-  gitAndTools.gitflow
-  gitAndTools.hub
-  gitAndTools.tig
-  gitAndTools.topGit
-  (exe gitAndTools.git-annex)
-  gitAndTools.git-annex-remote-rclone
-  gitAndTools.git-secret
-  gitstats
-  patch
-  patchutils
-  sift
-  travis
-
-  # jsToolsEnv
-  jq
-  jo
-  nodejs
-  nodePackages.eslint
-  nodePackages.csslint
-  nodePackages.js-beautify
-
-  # langToolsEnv
-  direnv
-  global
-  gnumake
-  htmlTidy
-  m4
-  idutils
-  rtags
-  sloccount
-  valgrind
-  wabt
 
   contacts
   dovecot
@@ -55,75 +12,15 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   msmtp
 
   # networkToolsEnv
-  aria2
-  backblaze-b2
-  bazaar
-  cacert
-  dnsutils
-  go-jira
-  httpie
-  httrack
-  iperf
-  lftp
-  mercurialFull
-  mitmproxy
-  mtr
-  nmap
-  openssh
-  openssl
-  openvpn
-  pdnsd
-  rclone
-  rsync
-  sipcalc
-  socat2pre
-  spiped
-  w3m
-  wget
-  wireguard
-  wireshark
-  youtube-dl
-  znc
-  zncModules.push
 
-  ditaa
-  dot2tex
-  doxygen
-  ffmpeg
-  figlet
-  fontconfig
-  graphviz-nox
-  groff
-  highlight
-  hugo
-  inkscape.out
-  librsvg
-  pandoc
-  plantuml
-  poppler_utils
-  recoll
-  qpdf
-  perlPackages.ImageExifTool
-  libxml2
-  libxslt
-  sdcv
-  sourceHighlight
-  svg2tikz
-  taskjuggler
-  texFull
-  # texinfo
-  xapian
-  xdg_utils
-  yuicompressor
-
-  # pythonToolsEnv
-  python27
-  pythonDocs.pdf_letter.python27
-  pythonDocs.html.python27
-  python27Packages.setuptools
-  python27Packages.pygments
-  python27Packages.certifi
-  python3
+#   # pythonToolsEnv
+#   python27
+#   pythonDocs.pdf_letter.python27
+#   pythonDocs.html.python27
+#   python27Packages.setuptools
+#   python27Packages.pygments
+#   python27Packages.certifi
+#   python3
 
   # systemToolsEnv
   apg

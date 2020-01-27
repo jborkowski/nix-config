@@ -43,15 +43,117 @@ in rec {
     # Basic tools
     htop
     file
+    coreutils
+    zlib
+
+    # langToolsEnv
+    direnv
+    global
+    gnumake
+    htmlTidy
+    m4
+    idutils
+    rtags
+    sloccount
+    valgrind
+    wabt
 
     # Dev tools
     (callPackage ./nvim.nix {})
-    gnumake
     ripgrep
     tmux
+    sqlite
+    stow
+
+    # gitToolsEnv
+    diffstat
+    diffutils
+    gist
+    git-lfs
+    gitRepo
+    gitAndTools.git-crypt
+    gitAndTools.git-hub
+    gitAndTools.git-imerge
+    gitAndTools.gitFull
+    gitAndTools.gitflow
     gitAndTools.hub
-    zlib
-    (callPackage ./packages.nix {})
+    gitAndTools.tig
+    gitAndTools.topGit
+    gitAndTools.git-annex-remote-rclone
+    gitAndTools.git-secret
+    gitstats
+    patch
+    patchutils
+    sift
+    travis
+
+    # networkToolsEnv
+    aria2
+    backblaze-b2
+    bazaar
+    cacert
+    dnsutils
+    go-jira
+    httpie
+    httrack
+    iperf
+    lftp
+    mercurialFull
+    mitmproxy
+    mtr
+    nmap
+    openssh
+    openssl
+    openvpn
+    pdnsd
+    rclone
+    rsync
+    sipcalc
+    spiped
+    w3m
+    wget
+    wireguard
+    wireshark
+    youtube-dl
+    znc
+    zncModules.push
+
+    ditaa
+    dot2tex
+    doxygen
+    ffmpeg
+    figlet
+    fontconfig
+    # graphviz-nox
+    groff
+    highlight
+    # hugo
+    # inkscape.out
+    # librsvg
+    pandoc
+    # plantuml
+    # poppler_utils
+    # recoll
+    # qpdf
+    # perlPackages.ImageExifTool
+    libxml2
+    # libxslt
+    # sdcv
+    sourceHighlight
+    # svg2tikz
+    # taskjuggler
+    texFull
+    # xapian
+    # xdg_utils
+    # yuicompressor
+
+    # jsToolsEnv
+    jq
+    jo
+    nodejs
+    nodePackages.eslint
+    nodePackages.csslint
+    nodePackages.js-beautify
   ];
 
   home.sessionVariables = {

@@ -2,7 +2,7 @@
 
 let
   ormolu = fetchGH "tweag/ormolu" "3137345";
-  # all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:
     pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
@@ -20,7 +20,7 @@ in {
     stylish-haskell
 
     # Install stable HIE for specified GHC versions
-    # (all-hies.selection { selector = p: { inherit (p) ghc865 ghc864; }; })
+    (all-hies.selection { selector = p: { inherit (p) ghc865 ghc864; }; })
 
     # ghcide
     # TODO: configure cache in home-manager first; until then, on macOS, use
