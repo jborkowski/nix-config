@@ -12,9 +12,21 @@ let
     ./home/gpg.nix
     ./home/udiskie.nix
   ];
-in
-{
-  nixpkgs.config.allowUnfree = true;
+in rec {
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowBroken = false;
+      allowUnsupportedSystem = false;
+    };
+
+    overlays =
+      let path = ../overlays; in with builtins;
+      map (n: import (path + ("/" + n)))
+          (filter (n: match ".*\\.nix" n != null ||
+                      pathExists (path + ("/" + n + "/default.nix")))
+                  (attrNames (readDir path)));
+  };
 
   programs.home-manager.enable = true;
 
@@ -39,6 +51,7 @@ in
     tmux
     gitAndTools.hub
     zlib
+    (callPackage ./packages.nix {})
   ];
 
   home.sessionVariables = {
