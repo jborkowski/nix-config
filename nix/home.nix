@@ -124,28 +124,27 @@ in rec {
     ffmpeg
     figlet
     fontconfig
-    # graphviz-nox
+    graphviz-nox
     groff
     highlight
-    # hugo
-    # inkscape.out
-    # librsvg
-    pandoc
-    # plantuml
-    # poppler_utils
+    hugo
+    inkscape.out
+    librsvg
+    plantuml
+    poppler_utils
     # recoll
     # qpdf
-    # perlPackages.ImageExifTool
+    perlPackages.ImageExifTool
     libxml2
-    # libxslt
-    # sdcv
+    libxslt
+    sdcv
     sourceHighlight
-    # svg2tikz
-    # taskjuggler
+    svg2tikz
+    taskjuggler
     texFull
-    # xapian
-    # xdg_utils
-    # yuicompressor
+    xapian
+    xdg_utils
+    yuicompressor
 
     # jsToolsEnv
     jq
