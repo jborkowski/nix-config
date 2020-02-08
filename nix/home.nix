@@ -45,6 +45,7 @@ in rec {
     file
     coreutils
     zlib
+    emacs
 
     # langToolsEnv
     direnv
