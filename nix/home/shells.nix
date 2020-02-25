@@ -62,31 +62,28 @@ in
       }
     ];
 
-    localVariables = {
-      # PATH="$HOME/.local/bin:/usr/local/bin:$PATH"; VISUAL=nvim
-    };
+    # localVariables = ''
+    #   NIX_IGNORE_SYMLINK_STORE=1
+    #   PATH=$PATH:/nix/var/nix/profiles/default/bin
+    # '';
+
+    # loginShellInit = [
+    #   ". $HOME/.nix-profile/etc/profile.d/nix.sh"
+    # ];
+
+    initExtra = ''
+    export NIX_IGNORE_SYMLINK_STORE=1
+    export PATH=$PATH:/nix/var/nix/profiles/default/bin
+    if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+      . ~/.nix-profile/etc/profile.d/nix.sh;
+      export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
+    fi # added by Nix installer
+    '';
+
 
     # interactiveShellInit = ''
 
-    #   export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
-
-    #   [[ -z $ZSH_TMUX_AUTOSTART ]] && ZSH_TMUX_AUTOSTART=true
-    #   #ZSH_TMUX_AUTOSTART=true
-    #   ZSH_TMUX_AUTOQUIT=false
-    #   ZSH_TMUX_AUTOCONNECT=false
-
-
-    #   eval "$(direnv hook zsh)"
-
-    #   export VISUAL=nvim
-    #   alias vim=nvim
-    #   export NIX_IGNORE_SYMLINK_STORE=1
-    #   export PATH=$PATH:/nix/var/nix/profiles/default/bin
-    #   #. $HOME/.nix-profile/etc/profile.d/nix.sh
-    # '';
-
-      # export NIX_PATH=$HOME/.nix-defexpr/channels'${NIX_PATH:+:}'$NIX_PATH
   };
   
 

@@ -11,16 +11,17 @@ in {
     # Some commonly used tools
     # cachix - I install it manually
     pandoc
+    stack
 
     hoogle
     # ormolu code formatter
     (macOSCaseNameFix (callPackage ormolu { inherit pkgs; }).ormolu)
 
     # stylish-hashell code formatter
-   # stylish-haskell
+    # stylish-haskell
 
     # Install stable HIE for specified GHC versions
-    (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
+    (all-hies.selection { selector = p: { inherit (p) ghc865 ghc882; }; })
 
     # ghcide
     # TODO: configure cache in home-manager first; until then, on macOS, use
