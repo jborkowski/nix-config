@@ -7,7 +7,7 @@
     baseIndex = 1;
     keyMode = "vi";
     customPaneNavigationAndResize = true;
-    aggressiveResize = true;
+    aggressiveResize = false;
     historyLimit = 100000;
     resizeAmount = 5;
     escapeTime = 0;
@@ -28,11 +28,13 @@
 
       set -g @sidebar-tree-command 'tree -C'
 
+
       # more plugins on https://github.com/tmux-plugins
       # hit prefix + I to fetch the plugin and source it. The plugin will automatically start "working" in the background, no action required.
       # set -g @plugin 'tmux-plugins/tmux-open'
       # set -g @plugin 'tmux-plugins/tmux-sidebar'
-      # set -g @plugin 'tmux-plugins/tmux-yank'
+      set -g @plugin 'tmux-plugins/tmux-yank'
+      set -g @plugin 'tmux-plugins/tpm'
       set -g @plugin 'seebi/tmux-colors-solarized'
       run '~/.tmux/plugins/tpm/tpm'
 
