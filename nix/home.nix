@@ -29,6 +29,7 @@ in rec {
   };
 
   programs.home-manager.enable = true;
+  programs.tmux.secureSocket = false;
 
   # Utility functions
   _module.args = {
@@ -115,9 +116,7 @@ in rec {
     wget
     wireguard
     wireshark
-    youtube-dl
     znc
-    zncModules.push
 
     ditaa
     dot2tex
@@ -158,6 +157,7 @@ in rec {
 
   home.sessionVariables = {
     EDITOR = "emacs";
+    TMUX_TMPDIR = "/tmp";
   };
 
 }
