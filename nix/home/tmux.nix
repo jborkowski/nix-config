@@ -21,7 +21,6 @@
       # Status Bar
       set-option -g status-interval 1
       set-option -g status-right ` #(whoami)@#H :: %H:%M%p`
-      set-window-option -g window-status-current-style green
       set-option -g status-fg default
 
       # Set Solarized light theme
