@@ -18,7 +18,7 @@ in {
     (macOSCaseNameFix (callPackage ormolu { inherit pkgs; }).ormolu)
 
     # stylish-hashell code formatter
-   # stylish-haskell
+    #stylish-haskell
 
     # Install stable HIE for specified GHC versions
     (all-hies.selection { selector = p: { inherit (p) ghc865 ghc882; }; })

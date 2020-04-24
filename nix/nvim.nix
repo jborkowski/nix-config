@@ -102,7 +102,6 @@ in
         { name = "vim-airline"; }
         { name = "vim-airline-themes"; }
         { name = "ctrlp-py-matcher"; }
-        { name = "papercolor-theme"; }
         { name = "indenthaskell"; }
         { name = "nerdtree"; }
         { name = "lastpos"; }
@@ -114,6 +113,8 @@ in
         { name = "fzf-vim"; }
         { name = "fzfWrapper"; }
         { name = "neovim-ghcid"; }
+        { name = "vim-multiple-cursors"; }
+        { name = "nerdcommenter"; }
         # { name = "vim-stylish-haskell"; }
       ];
 
@@ -166,6 +167,9 @@ in
       "-------------------------
       "Make ";" synonymous with ":" to enter commands
       nmap ; :
+      
+      let mapleader=","
+
       "Open tag in vertical split
       map <leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
       map <leader>w :%s/\s\+$//e<CR>
@@ -292,18 +296,8 @@ in
       "Run HLint
       nnoremap <C-h> :!hlint %<CR>
 
-      "Slime
-      "-------------------------
-      nmap <leader>+ <Plug>SetTmuxVars
-      nmap <C-i> :Tmux ./build<CR>
-      let g:tslime_always_current_session = 1
-      let g:tslime_always_current_window = 1
-
       "Coq
       "-------------------------
-      " Maps Coquille commands to <F2> (Undo), <F3> (Next), <F4> (ToCursor)
-      " au FileType coq call coquille#FNMapping()
-
       " TextEdit might fail if hidden is not set.
       set hidden
 
