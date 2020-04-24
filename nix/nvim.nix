@@ -115,6 +115,9 @@ in
         { name = "neovim-ghcid"; }
         { name = "vim-multiple-cursors"; }
         { name = "nerdcommenter"; }
+        { name = "vim-tmux-navigator"; }
+        { name = "vim-trailing-whitespace"; }
+        { name = "vim-markdown"; }
         # { name = "vim-stylish-haskell"; }
       ];
 

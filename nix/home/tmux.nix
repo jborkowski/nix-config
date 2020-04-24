@@ -28,7 +28,6 @@
 
       set -g @sidebar-tree-command 'tree -C'
 
-
       # more plugins on https://github.com/tmux-plugins
       # hit prefix + I to fetch the plugin and source it. The plugin will automatically start "working" in the background, no action required.
       # set -g @plugin 'tmux-plugins/tmux-open'
@@ -36,6 +35,7 @@
       set -g @plugin 'tmux-plugins/tmux-yank'
       set -g @plugin 'tmux-plugins/tpm'
       set -g @plugin 'seebi/tmux-colors-solarized'
+      set -g @plugin 'christoomey/vim-tmux-navigator'
       run '~/.tmux/plugins/tpm/tpm'
 
       # bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
