@@ -38,7 +38,7 @@ in {
         - imports:
             align: file
             list_align: after_alias
-            long_list_align: after_alias
+            long_list_align: inline
             list_padding: 4
             separate_lists: true
         - language_pragmas:
