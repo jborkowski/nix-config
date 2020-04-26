@@ -56,16 +56,6 @@ let
       };
     };
 
-    ag = pkgs.vimUtils.buildVimPlugin {
-      name = "ag";
-      src = pkgs.fetchFromGitHub {
-        owner = "rking";
-        repo = "ag.vim";
-        rev = "4a0dd6e190f446e5a016b44fdaa2feafc582918e";
-        sha256 = "1dz7rmqv3xw31090qms05hwbdfdn0qd1q68mazyb715cg25r85r2";
-      };
-    };
-
     neocomplcache = pkgs.vimUtils.buildVimPlugin {
       name = "neocomplcache";
       src = pkgs.fetchFromGitHub {
@@ -105,7 +95,6 @@ in
         { name = "indenthaskell"; }
         { name = "nerdtree"; }
         { name = "lastpos"; }
-        { name = "ag"; }
         { name = "fugitive"; }
         { name = "tslime"; }
         { name = "neocomplete"; }
@@ -119,9 +108,10 @@ in
         { name = "vim-trailing-whitespace"; }
         { name = "vim-markdown"; }
         { name = "vim-stylish-haskell"; }
+        { name = "ack-vim"; }
       ];
 
-      pathogen.knownPlugins = vimPlugins; # optional
+      pathogen.knownPlugins = vimPlugins;
       pathogen.pluginNames = ["vim-colors-solarized"];
 
       customRC = ''
@@ -219,6 +209,8 @@ in
                                     \ -g ""'
       endif
 
+      cnoreabbrev Ag Ag!
+      nnoremap <Leader>a :Ag!<Space>
 
       "Use a better relevance algorithm
       if !has('python')
@@ -388,11 +380,11 @@ in
 
       " Applying codeAction to the selected region.
       " Example: `<leader>aap` for current paragraph
-      xmap <leader>a  <Plug>(coc-codeaction-selected)
-      nmap <leader>a  <Plug>(coc-codeaction-selected)
+      " xmap <leader>a  <Plug>(coc-codeaction-selected)
+      " nmap <leader>a  <Plug>(coc-codeaction-selected)
 
       " Remap keys for applying codeAction to the current line.
-      nmap <leader>ac  <Plug>(coc-codeaction)
+      " nmap <leader>ac  <Plug>(coc-codeaction)
       " Apply AutoFix to problem on the current line.
       nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -424,7 +416,8 @@ in
 
       " Mappings using CoCList:
       " Show all diagnostics.
-      nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+      " nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+
       " Manage extensions.
       nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
       " Show commands.
