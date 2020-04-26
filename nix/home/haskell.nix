@@ -1,32 +1,29 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormolu = fetchGH "tweag/ormolu" "3137345";
-  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+  ormoluSrc = fetchGH "tweag/ormolu" "683cbea";
+
+  # 'cachix use hercules-ci' before 'home-manager switch'
+  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "c940edd";
+
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:
-    pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
+   pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
 in {
   home.packages = with pkgs.haskellPackages; [
+
     # Some commonly used tools
-    # cachix - I install it manually
+    cachix
     pandoc
-    stack
+    hlint
 
     hoogle
+    stylish-haskell
+
     # ormolu code formatter
-    (macOSCaseNameFix (callPackage ormolu { inherit pkgs; }).ormolu)
-
-    # stylish-hashell code formatter
-    #stylish-haskell
-
-    # Install stable HIE for specified GHC versions
-    (all-hies.selection { selector = p: { inherit (p) ghc865 ghc882; }; })
-
-    # ghcide
-    # TODO: configure cache in home-manager first; until then, on macOS, use
-    # 'cachix use hercules-ci' before 'home-manager switch'
-    (import (builtins.fetchTarball "https://github.com/hercules-ci/ghcide-nix/tarball/f0de603") {}).ghcide-ghc865
+    (macOSCaseNameFix (import ormoluSrc { }).ormolu)
+    # ghcide : disabling, because uttery broken and unreliable
+    (import ghcideNixSrc {}).ghcide-ghc865
   ];
 
   home.file = {
@@ -39,14 +36,14 @@ in {
     ".stylish-haskell.yaml".text = ''
       steps:
         - imports:
-            align: none
+            align: file
             list_align: after_alias
-            long_list_align: inline
-            list_padding: 2
+            long_list_align: after_alias
+            list_padding: 4
             separate_lists: true
         - language_pragmas:
             style: vertical
-            align: false
+            align: true
             remove_redundant: true
         - trailing_whitespace: {}
       columns: 110

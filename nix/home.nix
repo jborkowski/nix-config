@@ -7,38 +7,18 @@ let
     ./home/shells.nix
     ./home/tmux.nix
   ];
-  linuxImports = [
-    ./home/i3.nix
-    ./home/gpg.nix
-    ./home/udiskie.nix
-  ];
+  fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in rec {
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowBroken = true;
-      allowUnsupportedSystem = false;
-    };
-
-    overlays =
-      let path = ../overlays; in with builtins;
-      map (n: import (path + ("/" + n)))
-          (filter (n: match ".*\\.nix" n != null ||
-                      pathExists (path + ("/" + n + "/default.nix")))
-                  (attrNames (readDir path)));
-  };
-
+  nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
   programs.tmux.secureSocket = false;
 
   # Utility functions
   _module.args = {
-    fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
+    inherit fetchGH;
   };
 
-  imports = if builtins.currentSystem == "x86_64-linux"
-            then (allPlatformImports ++ linuxImports)
-            else allPlatformImports;
+  imports = allPlatformImports;
 
   home.packages = with pkgs; [
     # Basic tools
@@ -54,14 +34,14 @@ in rec {
     gnumake
     htmlTidy
     m4
-    idutils
     rtags
     sloccount
     valgrind
     wabt
 
     # Dev tools
-    (callPackage ./nvim.nix {})
+    (callPackage ./nvim.nix {inherit fetchGH;})
+
     ripgrep
     tmux
     sqlite
@@ -104,47 +84,12 @@ in rec {
     mitmproxy
     mtr
     nmap
-    openssh
-    openssl
     openvpn
     pdnsd
-    rclone
     rsync
     sipcalc
-    spiped
-    w3m
     wget
-    wireguard
-    wireshark
     znc
-
-    ditaa
-    dot2tex
-    doxygen
-    ffmpeg
-    figlet
-    fontconfig
-    graphviz-nox
-    groff
-    highlight
-    hugo
-    inkscape.out
-    librsvg
-    plantuml
-    poppler_utils
-    # recoll
-    # qpdf
-    perlPackages.ImageExifTool
-    libxml2
-    libxslt
-    sdcv
-    sourceHighlight
-    svg2tikz
-    taskjuggler
-    texFull
-    xapian
-    xdg_utils
-    yuicompressor
 
     # jsToolsEnv
     jq
@@ -156,7 +101,7 @@ in rec {
   ];
 
   home.sessionVariables = {
-    EDITOR = "emacs";
+    EDITOR = "nvim";
     TMUX_TMPDIR = "/tmp";
   };
 

@@ -118,7 +118,7 @@ in
         { name = "vim-tmux-navigator"; }
         { name = "vim-trailing-whitespace"; }
         { name = "vim-markdown"; }
-        # { name = "vim-stylish-haskell"; }
+        { name = "vim-stylish-haskell"; }
       ];
 
       pathogen.knownPlugins = vimPlugins; # optional
@@ -170,7 +170,7 @@ in
       "-------------------------
       "Make ";" synonymous with ":" to enter commands
       nmap ; :
-      
+
       let mapleader=","
 
       "Open tag in vertical split
