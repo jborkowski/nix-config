@@ -41,7 +41,7 @@ in rec {
 
     # Dev tools
     (callPackage ./nvim.nix {inherit fetchGH;})
-
+    # (callPackage ./purescript  )
     ripgrep
     tmux
     sqlite

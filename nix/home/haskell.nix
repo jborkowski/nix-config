@@ -6,10 +6,13 @@ let
   # 'cachix use hercules-ci' before 'home-manager switch'
   ghcideNixSrc = fetchGH "cachix/ghcide-nix" "c940edd";
 
+  easyPS = fetchGH "justinwoo/easy-purescript-nix" "d4879bf";
+
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:
    pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
 in {
+
   home.packages = with pkgs.haskellPackages; [
 
     # Some commonly used tools
@@ -19,6 +22,9 @@ in {
 
     hoogle
     stylish-haskell
+
+    (import easyPS {}).purs-0_13_6
+    (import easyPS {}).spago
 
     # ormolu code formatter
     (macOSCaseNameFix (import ormoluSrc { }).ormolu)

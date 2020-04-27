@@ -79,7 +79,7 @@ let
          owner = "tpope";
          repo = "vim-commentary";
          rev = "f8238d70f873969fb41bf6a6b07ca63a4c0b82b1";
-         sha256 = "157q2w2bq1p6g1wc67zl53n6iw4l04qz2sqa5j6mgqg71rgqzk0p";
+         sha256 = "09d81q9na7pvvrmxxqy09ffdzsx5v5dikinb704c9wm4ys2bidr9";
        };
     };
 
@@ -140,6 +140,7 @@ in
         { name = "auto-pairs"; }
         { name = "yajs-vim"; }
         { name = "commentary-vim"; }
+        { name = "semshi"; }
       ];
 
       pathogen.knownPlugins = vimPlugins;

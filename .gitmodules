@@ -1,0 +1,6 @@
+[submodule "nix/home/purescript"]
+	path = nix/home/purescript
+	url = https://github.com/justinwoo/easy-purescript-nix.git
+[submodule "nix/purescript"]
+	path = nix/purescript
+	url = https://github.com/justinwoo/easy-purescript-nix.git

@@ -30,7 +30,7 @@
 
       # more plugins on https://github.com/tmux-plugins
       # hit prefix + I to fetch the plugin and source it. The plugin will automatically start "working" in the background, no action required.
-      # set -g @plugin 'tmux-plugins/tmux-open'
+      set -g @plugin 'tmux-plugins/tmux-open'
       # set -g @plugin 'tmux-plugins/tmux-sidebar'
       set -g @plugin 'tmux-plugins/tmux-yank'
       set -g @plugin 'tmux-plugins/tpm'
