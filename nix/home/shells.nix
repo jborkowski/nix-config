@@ -74,6 +74,7 @@ in
     initExtra = ''
     export NIX_IGNORE_SYMLINK_STORE=1
     export PATH=$PATH:/nix/var/nix/profiles/default/bin:$HOME/.local/bin
+    
     if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
       . ~/.nix-profile/etc/profile.d/nix.sh;
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH

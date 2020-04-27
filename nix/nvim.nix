@@ -1,5 +1,3 @@
-# Based on [Ali Abrar](https://github.com/ali-abrar)'s Vim configuration.
-
 { pkgs ? import <nixpkgs> {}, ... }:
 
 let
@@ -120,8 +118,11 @@ in
       set background=light
       colorscheme solarized
 
+      set encoding=utf-8
       let g:airline_theme='solarized'
       let g:airline_solarized_bg='light'
+      let g:airline_powerline_fonts=1
+      let g:airline#extensions#tabline#enabled = 1
 
       set nocompatible
       set clipboard=unnamed
