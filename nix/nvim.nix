@@ -54,6 +54,35 @@ let
       };
     };
 
+    vim-jsx = pkgs.vimUtils.buildVimPluginFrom2Nix {
+      name = "vim-jsx";
+      src = pkgs.fetchgit {
+        url = "git://github.com/mxw/vim-jsx";
+        rev = "8879e0d9c5ba0e04ecbede1c89f63b7a0efa24af";
+        sha256 = "0czjily7kjw7bwmkxd8lqn5ncrazqjsfhsy3sf2wl9ni0r45cgcd";
+      };
+    };
+
+    yajs-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+       name = "yajs.vim";
+       src = pkgs.fetchFromGitHub {
+         owner = "othree";
+         repo = "yajs.vim";
+         rev = "437be4ccf0e78fe54cb482657091cff9e8479488";
+         sha256 = "157q2w2bq1p6g1wc67zl53n6iw4l04qz2sqa5j6mgqg71rgqzk0p";
+       };
+    };
+
+    commentary-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+       name = "commentary.vim";
+       src = pkgs.fetchFromGitHub {
+         owner = "tpope";
+         repo = "vim-commentary";
+         rev = "f8238d70f873969fb41bf6a6b07ca63a4c0b82b1";
+         sha256 = "157q2w2bq1p6g1wc67zl53n6iw4l04qz2sqa5j6mgqg71rgqzk0p";
+       };
+    };
+
     neocomplcache = pkgs.vimUtils.buildVimPlugin {
       name = "neocomplcache";
       src = pkgs.fetchFromGitHub {
@@ -107,6 +136,10 @@ in
         { name = "vim-markdown"; }
         { name = "vim-stylish-haskell"; }
         { name = "ack-vim"; }
+        { name = "vim-jsx"; }
+        { name = "auto-pairs"; }
+        { name = "yajs-vim"; }
+        { name = "commentary-vim"; }
       ];
 
       pathogen.knownPlugins = vimPlugins;
