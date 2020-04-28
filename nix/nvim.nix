@@ -14,6 +14,18 @@ let
       }) + "/plugins/nvim";
     };
 
+     psc-ide-vim = pkgs.vimUtils.buildVimPlugin {
+       pname = "psc-ide-vim";
+       version = "2019-09-17";
+       src = pkgs.fetchFromGitHub {
+         owner = "frigoeu";
+         repo = "psc-ide-vim";
+         rev = "5fb4e329e5c0c7d80f0356ab4028eee9c8bd3465";
+         sha256 = "0gzbxsq6wh8d9z9vyrff4hdpc66yg9y8hnxq4kjrz9qrccc75c1f";
+       };
+       meta.homepage = "https://github.com/frigoeu/psc-ide-vim/";
+     };
+
     papercolor-theme = pkgs.vimUtils.buildVimPlugin {
       name = "papercolor-theme";
       src = pkgs.fetchFromGitHub {
@@ -125,7 +137,6 @@ in
         { name = "fugitive"; }
         { name = "tslime"; }
         { name = "neocomplete"; }
-        { name = "neocomplcache"; }
         { name = "fzf-vim"; }
         { name = "fzfWrapper"; }
         { name = "neovim-ghcid"; }
@@ -141,6 +152,8 @@ in
         { name = "yajs-vim"; }
         { name = "commentary-vim"; }
         { name = "semshi"; }
+        { name = "purescript-vim"; }
+        { name = "psc-ide-vim"; }
       ];
 
       pathogen.knownPlugins = vimPlugins;
@@ -151,7 +164,8 @@ in
       "-------------------------
       set background=light
       colorscheme solarized
-
+      " let g:neocomplete#force_overwrite_completefunc
+      
       set encoding=utf-8
       let g:airline_theme='solarized'
       let g:airline_solarized_bg='light'
@@ -197,6 +211,9 @@ in
       nmap ; :
 
       let mapleader=","
+
+      " vv to generate new vertical split
+      " nnore map <silent> vv <C-w>v
 
       "Open tag in vertical split
       map <leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -256,26 +273,26 @@ in
 
       "Autocomplete
       "-------------------------
-      let g:neocomplcache_enable_at_startup = 1
-      let g:neocomplcache_tags_caching_limit_file_size = 10000000
+      "let g:neocomplcache_enable_at_startup = 1
+      "let g:neocomplcache_tags_caching_limit_file_size = 10000000
 
       "Use a custom <CR> handler
-      inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-      function! s:my_cr_function()
-        return neocomplcache#smart_close_popup() . "\<CR>"
+      "inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+      " function! s:my_cr_function()
+       " return neocomplcache#smart_close_popup() . "\<CR>"
         " For no inserting <CR> key.
         "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-      endfunction
+      " endfunction
 
       "<TAB>: completion.
-      inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
       "Close popup
-      inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-      inoremap <expr><C-y>  neocomplcache#close_popup()
-      inoremap <expr><C-e>  neocomplcache#cancel_popup()
-      "<BS>: delete backword char
-      inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+      " inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+      " inoremap <expr><C-y>  neocomplcache#close_popup()
+      " inoremap <expr><C-e>  neocomplcache#cancel_popup()
+      " <BS>: delete backword char
+      " inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 
       "NERDTree
       "-------------------------
@@ -283,13 +300,13 @@ in
       let NERDTreeIgnore = [ '\.js_dyn_o', '\.js_hi', '\.js_o', '\.js_dyn_hi', '\.dyn_hi', '\.dyn_o', '\.hi', '\.o', '\.p_hi', '\.p_o' ]
       "Automatically close if NERDTree is the only buffer left
       autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-      
+
       "Haskell
       "-------------------------
       au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
       au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
       au FileType haskell nnoremap <buffer> <F3> :HdevtoolsInfo<CR>
-      
+
       "Saving
       "-------------------------
       " If the current buffer has never been saved, it will have no name,
@@ -304,6 +321,7 @@ in
       "<C-s> to save
       nnoremap <silent> <C-s> :<C-u>Update<CR>
       inoremap <C-s> <C-o>:Update<CR>
+
 
       "ALE
       "-------------------------
