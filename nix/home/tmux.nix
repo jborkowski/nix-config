@@ -23,8 +23,28 @@
       set-option -g status-right ` #(whoami)@#H :: %H:%M%p`
       set-option -g status-fg default
 
+      set-option -g @online_icon "#[fg=#86dc2f]● online#[fg=default]"
+      set-option -g @offline_icon "#[fg=#e0211d]●	offline#[fg=default]"
+      set-option -g clock-mode-colour '#57557f'
+      set-option -g message-command-style 'bg=#262626,fg=#b2b2b2'
+      set-option -g message-style 'bg=#262626,fg=#b2b2b2'
+      set-option -g mode-style 'bg=#444444,fg=#b2b2b2'
+      set-option -g pane-border-style 'fg=#111111'
+      set-option -g pane-active-border-style 'fg=#111111'
+      set-option -g status-left ' #S '
+      set-option -g status-left-style 'bg=#fdab08,fg=#121212'
+      set-option -g status-right ' #{online_status} #[bg=#57557f] %Y/%m/%d %a %H:%M '
+      set-option -g status-right-style 'bg=#121212,fg=#b2b2b2'
+      set-option -g status-style 'bg=#121212,fg=#b2b2b2'
+      set-option -g window-status-activity-style 'bg=#121212,fg=#d75fd7'
+      set-option -g window-status-current-format ' #I#F| #W '
+      set-option -g window-status-current-style 'bg=#57557f,fg=#b2b2b2'
+      set-option -g window-status-format '#[fg=#585858] #I |#[fg=default] #W '
+      set-option -g window-status-separator ''''''
+      set-option -g window-status-style 'bg=#121212,fg=#b2b2b2'
+
       # Set Solarized dark theme
-      set -g @colors-solarized 'dark'
+      # set -g @colors-solarized 'dark'
 
       set -g @sidebar-tree-command 'tree -C'
 
