@@ -40,7 +40,7 @@ in rec {
     wabt
 
     # Dev tools
-    (callPackage ./nvim.nix {inherit fetchGH;})
+    (callPackage ./nvim {inherit fetchGH;})
     # (callPackage ./purescript  )
     ripgrep
     tmux

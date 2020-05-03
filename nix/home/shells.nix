@@ -47,6 +47,7 @@ in
     oh-my-zsh = {
       enable = true;
       theme = "robbyrussell";
+      custom = "${dotDir}/functions";
       plugins = ["git" "rbenv" "gitignore" "sbt" "scala" "mvn" "cp" "history" "rsync" "vagrant" ];
     };
 

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-   programs.tmux = {
+    programs.tmux = {
     enable = true;
     shortcut = "a"; # Use Ctrl-a
     baseIndex = 1;
@@ -23,8 +23,8 @@
       set-option -g status-right ` #(whoami)@#H :: %H:%M%p`
       set-option -g status-fg default
 
-      # Set Solarized light theme
-      set -g @colors-solarized 'light'
+      # Set Solarized dark theme
+      set -g @colors-solarized 'dark'
 
       set -g @sidebar-tree-command 'tree -C'
 
