@@ -98,6 +98,8 @@ in rec {
     nodePackages.eslint
     nodePackages.csslint
     nodePackages.js-beautify
+    nodePackages.prettier
+    # nodePackages.standarx
   ];
 
   home.sessionVariables = {
