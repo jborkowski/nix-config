@@ -21,13 +21,13 @@ in {
     hlint
 
     hoogle
+    stack
     stylish-haskell
-
     (import easyPS {}).purs-0_13_6
     (import easyPS {}).spago
 
     # ormolu code formatter
-    (macOSCaseNameFix (import ormoluSrc { }).ormolu)
+   # (macOSCaseNameFix (import ormoluSrc { }).ormolu)
     # ghcide : disabling, because uttery broken and unreliable
     (import ghcideNixSrc {}).ghcide-ghc865
   ];
