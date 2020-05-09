@@ -20,6 +20,7 @@ in {
     pandoc
     hlint
 
+    hasktags
     hoogle
     stack
     stylish-haskell
