@@ -24,12 +24,13 @@ in {
     hoogle
     stack
     stylish-haskell
+
     (import easyPS {}).purs-0_13_6
     (import easyPS {}).spago
+    zephyr
 
     # ormolu code formatter
-   # (macOSCaseNameFix (import ormoluSrc { }).ormolu)
-    # ghcide : disabling, because uttery broken and unreliable
+    # (macOSCaseNameFix (import ormoluSrc { }).ormolu)
     (import ghcideNixSrc {}).ghcide-ghc865
   ];
 
