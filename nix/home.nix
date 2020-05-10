@@ -10,7 +10,6 @@ let
   fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in rec {
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
   programs.home-manager.enable = true;
   programs.tmux.secureSocket = false;
 

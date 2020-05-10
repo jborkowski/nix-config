@@ -27,7 +27,8 @@ in {
 
     (import easyPS {}).purs-0_13_6
     (import easyPS {}).spago
-    zephyr
+    (import easyPS {}).zephyr
+    (import easyPS {}).purty
 
     # ormolu code formatter
     # (macOSCaseNameFix (import ormoluSrc { }).ormolu)
