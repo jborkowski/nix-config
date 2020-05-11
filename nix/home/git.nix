@@ -11,6 +11,8 @@
     userEmail = "jonatan.borkowski@pm.em";
     ignores = [
       "#*#"
+      "*~"
+      ".#*"
       "*.a"
       "*.aux"
       "*.dylib"
@@ -34,6 +36,23 @@
       "result"
       "result-*"
       "tags"
+      "/.emacs.desktop"
+      "/.emacs.desktop.lock"
+      "auto-save-list"
+      "tramp"
+      ".org-id-locations"
+      "*_archive"
+      "*_flymake.*"
+      "*.rel"
+      ".cask/"
+      "dist/"
+      "flycheck_*.el"
+      "/server/"
+      ".projectile"
+      ".dir-locals.el"
+      ".metals/"
+      ".bloop/"
+      "project/metals.sbt"
     ];
     aliases = {
       amend = "commit --amend -C HEAD";
