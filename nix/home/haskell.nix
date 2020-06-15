@@ -4,7 +4,7 @@ let
   ormoluSrc = fetchGH "tweag/ormolu" "683cbea";
 
   # 'cachix use hercules-ci' before 'home-manager switch'
-  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "c940edd";
+  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "67493b8";
 
   easyPS = fetchGH "justinwoo/easy-purescript-nix" "d4879bf";
 

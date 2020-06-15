@@ -72,7 +72,6 @@ in rec {
     # networkToolsEnv
     aria2
     backblaze-b2
-    bazaar
     cacert
     dnsutils
     go-jira
@@ -100,6 +99,7 @@ in rec {
     nodePackages.js-beautify
     nodePackages.prettier
     # nodePackages.standarx
+    # nodePackages.expo-cli
   ];
 
   home.sessionVariables = {
