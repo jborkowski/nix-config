@@ -1,12 +1,12 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormoluSrc = fetchGH "tweag/ormolu" "683cbea";
+  ormoluSrc = fetchGH "tweag/ormolu" "dec158c";
 
   # 'cachix use hercules-ci' before 'home-manager switch'
-  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "67493b8";
+  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "c65caf0";
 
-  easyPS = fetchGH "justinwoo/easy-purescript-nix" "d4879bf";
+  easyPS = fetchGH "justinwoo/easy-purescript-nix" "1ec689d";
 
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:
@@ -38,7 +38,6 @@ in {
       :set prompt "λ> "
     '';
     # stylish-haskell (obsidian style)
-    # I now use ormolu; retaining this config for legacy purposes.
     ".stylish-haskell.yaml".text = ''
       steps:
         - imports:

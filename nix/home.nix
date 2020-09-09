@@ -10,7 +10,6 @@ let
   fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in rec {
   nixpkgs.config.allowUnfree = true;
-  programs.home-manager.enable = true;
   programs.tmux.secureSocket = false;
 
   # Utility functions
@@ -46,6 +45,7 @@ in rec {
     tmux
     sqlite
     stow
+    nixops
 
     # gitToolsEnv
     diffstat
@@ -70,8 +70,6 @@ in rec {
     travis
 
     # networkToolsEnv
-    aria2
-    backblaze-b2
     cacert
     dnsutils
     go-jira
@@ -79,7 +77,6 @@ in rec {
     httrack
     iperf
     lftp
-    mercurialFull
     mitmproxy
     mtr
     nmap
@@ -98,13 +95,18 @@ in rec {
     nodePackages.csslint
     nodePackages.js-beautify
     nodePackages.prettier
-    # nodePackages.standarx
-    # nodePackages.expo-cli
   ];
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "emacs";
     TMUX_TMPDIR = "/tmp";
   };
+
+  programs.home-manager = {
+    enable = true;
+    path = "https://github.com/rycee/home-manager/archive/master.tar.gz";
+  };
+  home.stateVersion = "20.03";
+
 
 }
