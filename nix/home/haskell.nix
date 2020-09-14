@@ -3,10 +3,11 @@
 let
   ormoluSrc = fetchGH "tweag/ormolu" "dec158c";
 
-  # 'cachix use hercules-ci' before 'home-manager switch'
-  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "c65caf0";
+  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "7014271";
 
   easyPS = fetchGH "justinwoo/easy-purescript-nix" "1ec689d";
+
+  haskellOverridez = fetchGH "adetokunbo/haskell-overridez" "v0.10.3.1";
 
   # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
   macOSCaseNameFix = drv:
@@ -26,10 +27,16 @@ in {
     (import easyPS {}).purs-0_13_6
     (import easyPS {}).spago
 
+    cabal2nix
+    styx
+
+    (import haskellOverridez {}).haskell-overridez
+
     # ormolu code formatter
-   # (macOSCaseNameFix (import ormoluSrc { }).ormolu)
-    # ghcide : disabling, because uttery broken and unreliable
+    # (macOSCaseNameFix (import ormoluSrc { }).ormolu)
     (import ghcideNixSrc {}).ghcide-ghc865
+    # (import ghcideNixSrc {}).ghcide-ghc884
+    # (import ghcideNixSrc {}).ghcide-ghc8102
   ];
 
   home.file = {
