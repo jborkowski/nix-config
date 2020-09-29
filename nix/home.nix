@@ -6,6 +6,11 @@ let
     ./home/haskell.nix
     ./home/shells.nix
     ./home/tmux.nix
+    ./home/i3.nix
+    ./home/vscode.nix
+    ./home/irc.nix
+    (import ./home/emacs {inherit pkgs; })
+    ./scripts.nix
   ];
   fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in rec {
@@ -25,7 +30,6 @@ in rec {
     file
     coreutils
     zlib
-    emacs
 
     # langToolsEnv
     direnv
@@ -38,14 +42,16 @@ in rec {
     valgrind
     wabt
 
+
     # Dev tools
-    (callPackage ./nvim {inherit fetchGH;})
-    # (callPackage ./purescript  )
+    (callPackage ./home/nvim { inherit fetchGH; })
     ripgrep
     tmux
     sqlite
     stow
     nixops
+    idea.idea-community
+    sbt
 
     # gitToolsEnv
     diffstat
@@ -95,17 +101,51 @@ in rec {
     nodePackages.csslint
     nodePackages.js-beautify
     nodePackages.prettier
+
+    # editor
+    vscode
+
+    # communication
+    slack
+    protonmail-bridge
+    discord
+
+    # cloud
+    nextcloud-client
+
+    # office
+    libreoffice
+
+    # pdf
+    mupdf
+
+    # ebook - epub
+    calibre
+
+    # flash cards
+    anki
+
+    # video
+    vlc
+
+    # file manager
+    ranger
+
+    tree
   ];
 
   home.sessionVariables = {
     EDITOR = "emacs";
     TMUX_TMPDIR = "/tmp";
+    QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+    QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
   };
 
   programs.home-manager = {
     enable = true;
-    path = "https://github.com/rycee/home-manager/archive/master.tar.gz";
   };
+
+
   home.stateVersion = "20.03";
 
 

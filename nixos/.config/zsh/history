@@ -1,0 +1,21 @@
+: 1601234225:0;vim openvpn.nix
+: 1601234261:0;cd
+: 1601234607:0;vim ../nixos-configuration/asus-z390.nix
+: 1601234652:0;sudo nixos-rebuild switch
+: 1601234670:0;ks
+: 1601234673:0;ll
+: 1601234687:0;vim openvpn.nix
+: 1601234704:0;sudo nixos-rebuild switch
+: 1601234718:0;vim openvpn.nix
+: 1601234729:0;sudo nixos-rebuild switch
+: 1601234741:0;openvpn
+: 1601234754:0;sudo nixos-rebuild switch
+: 1601234776:0;vim openvpn.nix
+: 1601234784:0;sudo nixos-rebuild switch
+: 1601234970:0;systemctl status cortb
+: 1601235157:0;sudo systemctl restart cortb
+: 1601235159:0;sudo nixos-rebuild switch
+: 1601233892:0;cp i3.nix openvpn
+: 1601233903:0;mv openvpn openvpn.nix
+: 1601233905:309;vim openvpn.nix
+: 1601234216:0;tmux

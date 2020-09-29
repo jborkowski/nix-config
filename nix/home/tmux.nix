@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-    programs.tmux = {
+  programs.tmux = {
     enable = true;
     shortcut = "a"; # Use Ctrl-a
     baseIndex = 1;

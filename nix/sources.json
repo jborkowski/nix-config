@@ -1,0 +1,98 @@
+{
+    "NUR": {
+        "branch": "master",
+        "description": "Nix User Repository: User contributed nix packages [maintainer=@Mic92]",
+        "homepage": "",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "6951427ea02c0fb0a51848cc227978e5f510dc77",
+        "sha256": "1xvyckfibbb7bw5dpfx5m8fnqqb787ym769bzdjlyyz5ap7ff9hd",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/NUR/archive/6951427ea02c0fb0a51848cc227978e5f510dc77.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "emacs-overlay": {
+        "branch": "master",
+        "description": "Bleeding edge emacs overlay [maintainer=@adisbladis] ",
+        "homepage": "",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "4ae245ce817bcd017de987022e1b179635b21b67",
+        "sha256": "002ijwijvsrhwb6ws2dhrgvyw7l68ibiczrpvb62d29ylpwnn9l1",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/emacs-overlay/archive/4ae245ce817bcd017de987022e1b179635b21b67.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "emacs-pgtk-nativecomp-overlay": {
+        "branch": "master",
+        "description": "nix overlay for emacs with native compilation and pgtk, based on emacs-overlay and cachix templates",
+        "homepage": "",
+        "owner": "mjlbach",
+        "repo": "emacs-pgtk-nativecomp-overlay",
+        "rev": "ea6d7932433d0b53f9f1ae7fda1f5c142557ca4b",
+        "sha256": "06f5hhsyd3ik89lr3w241hzd4xkmbxwcxx43j8p5dj9913y6ayqg",
+        "type": "tarball",
+        "url": "https://github.com/mjlbach/emacs-pgtk-nativecomp-overlay/archive/ea6d7932433d0b53f9f1ae7fda1f5c142557ca4b.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "home-manager": {
+        "branch": "master",
+        "description": "Manage a user environment using Nix  [maintainer=@rycee] ",
+        "homepage": "https://rycee.gitlab.io/home-manager/",
+        "owner": "rycee",
+        "repo": "home-manager",
+        "rev": "abfb4cde51856dbee909f373b59cd941f51c2170",
+        "sha256": "0vm304vcvp5p0bcqj9rapzkchvdbs2alssg5m8a590vz41r2bp33",
+        "type": "tarball",
+        "url": "https://github.com/rycee/home-manager/archive/abfb4cde51856dbee909f373b59cd941f51c2170.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "neuron": {
+        "branch": "master",
+        "description": "Future-proof and simple-to-use notes system based on Zettelkasten.",
+        "homepage": "https://neuron.zettel.page",
+        "owner": "srid",
+        "repo": "neuron",
+        "rev": "2b939da87f064a15092c5780db4e8fc95a760255",
+        "sha256": "0zc78y4vv4jc5v5jgigb5pyhb3jw13l2g4n1f31abl8l0v99f7cg",
+        "type": "tarball",
+        "url": "https://github.com/srid/neuron/archive/2b939da87f064a15092c5780db4e8fc95a760255.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "niv": {
+        "branch": "master",
+        "description": "Easy dependency management for Nix projects",
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "29ddaaf4e099c3ac0647f5b652469dfc79cd3b53",
+        "sha256": "1va6myp07gkspgxfch8z3rs9nyvys6jmgzkys6a2c4j09qxp1bs0",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/29ddaaf4e099c3ac0647f5b652469dfc79cd3b53.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixos-hardware": {
+        "branch": "master",
+        "description": "A collection of NixOS modules covering hardware quirks.",
+        "homepage": "",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "684eaddf74109b2bedb8b585a25714eb9ea5c54e",
+        "sha256": "1f6vi1jg8kdq0dk0kjkj1q401c21g4bblhq4r56wwfvndh0z3wx3",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixos-hardware/archive/684eaddf74109b2bedb8b585a25714eb9ea5c54e.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "release-20.03",
+        "description": "Nix Packages collection",
+        "homepage": null,
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a6f277f9ffb24fb091c091bf46927b837becb2c2",
+        "sha256": "1v8smkl0mdzjxkmd6sxqrmwcadjanz8r75v0hz18zrzz291x5mg8",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/a6f277f9ffb24fb091c091bf46927b837becb2c2.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}

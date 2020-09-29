@@ -1,10 +1,13 @@
 { config, lib, pkgs, ... }:
 
-let 
+let
   mod = "Mod4";
 in {
+  xsession.scriptPath = ".hm-xsession"; # Ref: https://discourse.nixos.org/t/opening-i3-from-home-manager-automatically/4849/8
+  xsession.enable = true;
   xsession.windowManager.i3 = {
     enable = true;
+    package = pkgs.i3-gaps;
     config = {
       modifier = mod;
 
@@ -12,24 +15,30 @@ in {
 
       keybindings = lib.mkOptionDefault {
         "${mod}+p" = "exec ${pkgs.dmenu}/bin/dmenu_run";
-        "${mod}+x" = "exec sh -c '${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png'";
-        "${mod}+Shift+x" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
+        "${mod}+x" = "exec screenshot";
+        "${mod}+Ctrl+x" = "exec screenshot-to-zettelkasten";
+        "${mod}+Shift+x" = "exec lockscreen";
 
         # Focus
-        "${mod}+j" = "focus left";
-        "${mod}+k" = "focus down";
-        "${mod}+l" = "focus up";
-        "${mod}+semicolon" = "focus right";
+        "${mod}+h" = "focus left";
+        "${mod}+j" = "focus down";
+        "${mod}+k" = "focus up";
+        "${mod}+l" = "focus right";
 
         # Move
-        "${mod}+Shift+j" = "move left";
-        "${mod}+Shift+k" = "move down";
-        "${mod}+Shift+l" = "move up";
-        "${mod}+Shift+semicolon" = "move right";
+        "${mod}+Shift+h" = "move left";
+        "${mod}+Shift+j" = "move down";
+        "${mod}+Shift+k" = "move up";
+        "${mod}+Shift+l" = "move right";
 
-        # My multi monitor setup
-        "${mod}+m" = "move workspace to output DP-2";
-        "${mod}+Shift+m" = "move workspace to output DP-5";
+        # Swap
+        "${mod}+i" = "mark _last; focus left; swap with mark \"_last\" ";
+        "${mod}+Shift+i" = "mark _last; focus right; swap with mark \"_last\" ";
+
+        # Emacs
+        #"${mod}+i"      = "exec emacsclient -c";
+        #"${mod}+Ctrl+i" = "exec pkill emacs && emacs --daemon && emacsclient -c";
+        #"${mod}+Shift+i" = "exec emacs -ib 16";
       };
 
       bars = [
@@ -39,5 +48,9 @@ in {
         }
       ];
     };
+    extraConfig = ''
+      for_window [class="floating"] floating enable;
+      for_window [class="1password"] floating enable;
+    '';
   };
 }

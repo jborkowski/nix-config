@@ -29,7 +29,7 @@ format = "{1m}"
 
 [[block]]
 block = "net"
-device = "wlp4s0"
+device = "wlo1"
 ssid = true
 ip = false
 speed_up = false
@@ -44,6 +44,3 @@ on_click = "pulsemixer --toggle-mute"
 block = "time"
 interval = 60
 format = "%a %m/%d %I:%M"
-
-[[block]]
-block = "battery"
