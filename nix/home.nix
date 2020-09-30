@@ -7,9 +7,9 @@ let
     ./home/shells.nix
     ./home/tmux.nix
     ./home/i3.nix
-    ./home/vscode.nix
     ./home/irc.nix
-    (import ./home/emacs {inherit pkgs; })
+    (import ./home/vscode.nix { inherit pkgs; } )
+    (import ./home/emacs { inherit pkgs; })
     ./scripts.nix
   ];
   fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
@@ -44,6 +44,7 @@ in rec {
 
 
     # Dev tools
+    
     (callPackage ./home/nvim { inherit fetchGH; })
     ripgrep
     tmux
@@ -101,9 +102,6 @@ in rec {
     nodePackages.csslint
     nodePackages.js-beautify
     nodePackages.prettier
-
-    # editor
-    vscode
 
     # communication
     slack

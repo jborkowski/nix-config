@@ -34,8 +34,8 @@ in {
 
     # ormolu code formatter
     # (macOSCaseNameFix (import ormoluSrc { }).ormolu)
-    (import ghcideNixSrc {}).ghcide-ghc865
-    # (import ghcideNixSrc {}).ghcide-ghc884
+    # (import ghcideNixSrc {}).ghcide-ghc865
+   (import ghcideNixSrc {}).ghcide-ghc884
     # (import ghcideNixSrc {}).ghcide-ghc8102
   ];
 
