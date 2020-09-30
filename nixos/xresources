@@ -65,7 +65,7 @@ URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.url-select.launcher:  /usr/bin/chrominum -new-tab
 URxvt.url-select.underline: true
 
-Xft*dpi:                    96 ! 100% scaling
+Xft*dpi:                    144 !  150% scaling
 Xft*antialias:              true
 Xft*hinting:                full
 Xft*lcdfilter:              lcddefault

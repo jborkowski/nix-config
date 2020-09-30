@@ -12,12 +12,12 @@
 
   programs.emacs = {
     enable = true;
-    #package = pkgs.emacsGit;
-    package = pkgs.emacsGccPgtk;
+    package = pkgs.emacsGit;
+    #package = pkgs.emacsGccPgtk;
     
     extraPackages = epkgs: with epkgs; [
       magit
-
+      
       nyan-mode
 
       projectile
@@ -34,12 +34,10 @@
       evil-nerd-commenter
 
       git-timemachine
-
       duplicate-thing
       dumb-jump
       eyebrowse
       ormolu
-      nix-haskell-mode
       direnv
       dap-mode
       helm-lsp
@@ -51,8 +49,6 @@
       ob-restclient
       ob-ammonite
       org-kindle
-      # lsp-haskell
-      # flycheck-haskell
       smartparens
       ace-window
       avy
@@ -69,9 +65,7 @@
       hydra 
       jsonrpc 
       lsp-ui 
-      lv 
       magit 
-      sbt-mode 
       scala-mode 
       transient 
       treepy 
@@ -80,27 +74,19 @@
       yasnippet-snippets 
       helm-ag 
       helm-ag-r 
-      helm-etags-plus
       zoom-window 
       zoom 
-      yasnippet-classic-snippets 
       yaml-mode 
       wttrin 
-      terraform-mode 
-      terminal-here 
       string-edit 
-      stack-mode 
-      react-snippets 
       purescript-mode 
       org-bullets 
       nyan-mode 
-      neotree
       multiple-cursors 
       moe-theme 
       keyfreq 
       json-mode 
       highlight-symbol
-      goto-chg 
       exec-path-from-shell
       eno
       encourage-mode 
@@ -108,9 +94,7 @@
       ebdb
       company
       company-lsp 
-      auto-package-update
-      auto-highlight-symbol 
-      # vannoying-arrows-mode 
+      annoying-arrows-mode 
       ag
     ];
 

@@ -7,8 +7,8 @@
       enable = true;
       package = pkgs.i3-gaps;
     };
-    autoRepeatInterval = 50;
-    autoRepeatDelay = 50;
+    autoRepeatInterval = 80;
+    autoRepeatDelay = 220;
     libinput.naturalScrolling = true;
     displayManager = {
       defaultSession = "none+i3";

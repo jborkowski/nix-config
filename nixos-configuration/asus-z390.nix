@@ -81,6 +81,7 @@ in {
     _1password-gui
     chromium
     rxvt_unicode
+    clipmenu
   ];
 
   environment.interactiveShellInit = ''
@@ -98,6 +99,8 @@ in {
     enable = true;
     ports = [22];
   };
+
+  services.clipmenu.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

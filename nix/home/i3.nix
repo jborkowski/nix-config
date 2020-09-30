@@ -19,6 +19,9 @@ in {
         "${mod}+Ctrl+x" = "exec screenshot-to-zettelkasten";
         "${mod}+Shift+x" = "exec lockscreen";
 
+        "${mod}+c" = "exec ${pkgs.clipmenu}/bin/clipcopy";
+        "${mod}+v" = "exec ${pkgs.clipmenu}/bin/clippaste";
+
         # Focus
         "${mod}+h" = "focus left";
         "${mod}+j" = "focus down";
@@ -31,14 +34,14 @@ in {
         "${mod}+Shift+k" = "move up";
         "${mod}+Shift+l" = "move right";
 
-        # Swap
-        "${mod}+i" = "mark _last; focus left; swap with mark \"_last\" ";
-        "${mod}+Shift+i" = "mark _last; focus right; swap with mark \"_last\" ";
-
+        # Split
+        "${mod}+s"   = "split h";
+        "${mod}+s+v" = "split v";
+        
         # Emacs
-        #"${mod}+i"      = "exec emacsclient -c";
-        #"${mod}+Ctrl+i" = "exec pkill emacs && emacs --daemon && emacsclient -c";
-        #"${mod}+Shift+i" = "exec emacs -ib 16";
+        "${mod}+i"      = "exec emacsclient -c";
+        "${mod}+Ctrl+i" = "exec pkill emacs && emacs --daemon && emacsclient -c";
+        "${mod}+Shift+i" = "exec emacs -ib 16";
       };
 
       bars = [
@@ -52,5 +55,6 @@ in {
       for_window [class="floating"] floating enable;
       for_window [class="1password"] floating enable;
     '';
+
   };
 }
