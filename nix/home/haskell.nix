@@ -1,20 +1,13 @@
-{ pkgs, fetchGH, ... }:
+{ pkgs, ... }:
 
 let
-  ormoluSrc = fetchGH "tweag/ormolu" "dec158c";
+  sources = import ../sources.nix;
+  easy-ps = import sources.easy-purescript-nix {};
 
-  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "7014271";
-
-  easyPS = fetchGH "justinwoo/easy-purescript-nix" "7b1c163";
-
-  # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
-  macOSCaseNameFix = drv:
-   pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
 in {
 
   home.packages = with pkgs.haskellPackages; [
 
-    # Some commonly used tools
     cachix
     pandoc
     hlint
@@ -23,14 +16,17 @@ in {
     hoogle
     stack
     stylish-haskell
-
-   (import easyPS {}).purs-0_13_8
-   (import easyPS {}).spago
-   (import easyPS {}).zephyr
-   (import easyPS {}).purty
+    ormolu
+    ghcide
 
     cabal2nix
-    (import ghcideNixSrc {}).ghcide-ghc8102
+
+    # purescript
+    easy-ps.purs-0_13_8
+    easy-ps.spago
+    easy-ps.zephyr
+    easy-ps.purty
+
   ];
 
   home.file = {
@@ -38,6 +34,7 @@ in {
     ".ghci".text = ''
       :set prompt "λ> "
     '';
+
     # stylish-haskell (obsidian style)
     ".stylish-haskell.yaml".text = ''
       steps:
@@ -55,5 +52,30 @@ in {
       columns: 110
     '';
 
+    # coc.vim
+    ".config/nvim/coc-settings.json".text = ''
+      {
+        "languageserver": {
+          "haskell": {
+            "command": "ghcide",
+            "args": [
+              "--lsp"
+            ],
+            "rootPatterns": [
+              ".stack.yaml",
+              ".hie-bios",
+              "BUILD.bazel",
+              "cabal.config",
+              "package.yaml"
+            ],
+            "filetypes": [
+              "hs",
+              "lhs",
+              "haskell"
+            ]
+          }
+        }
+      }
+      '';
   };
 }

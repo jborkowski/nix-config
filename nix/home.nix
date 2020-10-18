@@ -6,6 +6,7 @@ let
     ./home/haskell.nix
     ./home/shells.nix
     ./home/tmux.nix
+    ./emacs
   ];
   fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in rec {
@@ -25,13 +26,12 @@ in rec {
     file
     coreutils
     zlib
-    emacs
+    tree
 
     # langToolsEnv
     direnv
     global
     gnumake
-    htmlTidy
     m4
     rtags
     sloccount
@@ -43,30 +43,7 @@ in rec {
     ripgrep
     tmux
     sqlite
-    stow
     nixops
-
-    # gitToolsEnv
-    diffstat
-    diffutils
-    gist
-    git-lfs
-    gitRepo
-    gitAndTools.git-crypt
-    gitAndTools.git-hub
-    gitAndTools.git-imerge
-    gitAndTools.gitFull
-    gitAndTools.gitflow
-    gitAndTools.hub
-    gitAndTools.tig
-    gitAndTools.topGit
-    gitAndTools.git-annex-remote-rclone
-    gitAndTools.git-secret
-    gitstats
-    patch
-    patchutils
-    sift
-    travis
 
     # networkToolsEnv
     cacert
