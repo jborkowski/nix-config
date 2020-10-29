@@ -145,7 +145,14 @@
        ;;nim               ; python + lisp at the speed of c
        nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       org               ; organize your plain life in plain text
+       (org                ; organize your plain life in plain text
+        +pretty            ; Draw pretty unicode tables in OrgMode
+        +journal           ; a simple personal diary / journal in Emacs
+        +roam              ; A plain-text personal knowledge management system
+        +dragndrop         ; Exporting org to whatever you want
+        ;; +publish           ; Emacs + Org as static site generator
+        +present)          ; Emacs for presentations
+
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        purescript        ; javascript, but functional

@@ -53,6 +53,7 @@
       ".metals/"
       ".bloop/"
       "project/metals.sbt"
+      ".config/zsh/history"
     ];
     aliases = {
       amend = "commit --amend -C HEAD";

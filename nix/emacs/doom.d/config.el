@@ -27,6 +27,13 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
+(setq js-indent-level 2
+      typescript-indent-level 2
+      json-reformat:indent-width 2
+      css-indent-offset 2
+      +org-capture-todo-file "work.org"
+      projectile-project-search-path '("~/projects"))
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
@@ -35,7 +42,18 @@
       deft-extensions '("org", "txt", "md")
       deft-recursive t)
 
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+;; (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(set-popup-rule! "^\\*Org Agenda" :side 'bottom :size 0.75 :select t :ttl nil)
+(set-popup-rule! "^CAPTURE.*\\.org" :side 'bottom :size 0.95 :select t :ttl nil)
+(set-popup-rule! "^\\*org-brain" :side 'right :size 1.00 :select t :ttl nil)
+
+(setq org-journal-date-prefix "#+TITLE: "
+      org-journal-time-prefix "* "
+      org-journal-date-format "%a, %Y-%m-%d"
+      org-journal-file-format "%Y-%m-%d.org")
+
+(setq org-roam-directory "~/roam")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
