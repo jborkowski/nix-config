@@ -32,7 +32,7 @@
       json-reformat:indent-width 2
       css-indent-offset 2
       +org-capture-todo-file "work.org"
-      projectile-project-search-path '("~/projects"))
+      projectile-project-search-path '("~/projects/"))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
