@@ -19,6 +19,7 @@ in {
     ormolu
     ghcide
 
+
     cabal2nix
 
     # purescript

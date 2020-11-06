@@ -17,10 +17,10 @@
         "homepage": "https://github.com/digital-asset/ghcide",
         "owner": "cachix",
         "repo": "ghcide-nix",
-        "rev": "8cbf4092acc9faee31a68c4081b081ffebea1f40",
-        "sha256": "06i0b3l50xg7mdv5zm1jp2rgsdjr39vrb7jvlrzy1qxs3qp3qbar",
+        "rev": "78a5e53ea6a52773da3021003802411b07c5ee80",
+        "sha256": "0mxv2yppgh8yk0bmhmx7n6zhsvx9y8gcvn58s02rirz8b0kxbi5i",
         "type": "tarball",
-        "url": "https://github.com/cachix/ghcide-nix/archive/8cbf4092acc9faee31a68c4081b081ffebea1f40.tar.gz",
+        "url": "https://github.com/cachix/ghcide-nix/archive/78a5e53ea6a52773da3021003802411b07c5ee80.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -29,10 +29,10 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "9d35b9e4837ab88517210b1701127612c260eccf",
-        "sha256": "0q50xhnm8g2yfyakrh0nly4swyygxpi0a8cb9gp65wcakcgvzvdh",
+        "rev": "20c899271f288d33114760bc298838575fc6c7f9",
+        "sha256": "07zswk6dhlydihl9g6skmy52grjvqpra8r98f2dmbgwzc1yhjhxq",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/9d35b9e4837ab88517210b1701127612c260eccf.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/20c899271f288d33114760bc298838575fc6c7f9.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nix-doom-emacs": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "vlaci",
         "repo": "nix-doom-emacs",
-        "rev": "7b0bfa990062e1aad527ac7ca150177f8b1a683a",
-        "sha256": "0h0pbznvx0v5hvgxm892ppka48k65a2wldjn1da5xj2pb6j1bm58",
+        "rev": "60e74d4f93033323ad249c74c105f1b740cde9c1",
+        "sha256": "1x8064y4880v22ncms8lb4mmdvc00ac7m86bf90bxikgigwf9c6h",
         "type": "tarball",
-        "url": "https://github.com/vlaci/nix-doom-emacs/archive/7b0bfa990062e1aad527ac7ca150177f8b1a683a.tar.gz",
+        "url": "https://github.com/vlaci/nix-doom-emacs/archive/60e74d4f93033323ad249c74c105f1b740cde9c1.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "ormolu": {
@@ -53,10 +53,10 @@
         "homepage": null,
         "owner": "tweag",
         "repo": "ormolu",
-        "rev": "f896262aee3170c823ad70fe11945e64cdc24b9c",
-        "sha256": "0hr94mxkvxys3n8nr5r4kmgmhx2k3y831wr3dfjs2y1nw3ldzrhr",
+        "rev": "a28f7b875666a109e6a51c46e012f1da875cce28",
+        "sha256": "0vys8h2pxm59dd71cmi4gj71yafmcg63zjxlljz6ji063ml95n39",
         "type": "tarball",
-        "url": "https://github.com/tweag/ormolu/archive/f896262aee3170c823ad70fe11945e64cdc24b9c.tar.gz",
+        "url": "https://github.com/tweag/ormolu/archive/a28f7b875666a109e6a51c46e012f1da875cce28.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

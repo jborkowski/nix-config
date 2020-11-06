@@ -7,11 +7,17 @@ let
     ./home/shells.nix
     ./home/tmux.nix
     ./emacs
+
   ];
   fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in rec {
   nixpkgs.config.allowUnfree = true;
   programs.tmux.secureSocket = false;
+
+  home = {
+    username = "jobo";
+    homeDirectory = "/User/jobo";
+  };
 
   # Utility functions
   _module.args = {
@@ -35,7 +41,7 @@ in rec {
     m4
     rtags
     sloccount
-    valgrind
+#    valgrind
     wabt
 
     # Dev tools
@@ -43,25 +49,35 @@ in rec {
     ripgrep
     tmux
     sqlite
-    nixops
+    niv
+#    nixops
 
     # networkToolsEnv
-    cacert
+ #   cacert
     dnsutils
-    go-jira
     httpie
-    httrack
     iperf
-    lftp
     mitmproxy
-    mtr
-    nmap
     openvpn
     pdnsd
     rsync
     sipcalc
     wget
     znc
+
+    dejavu_fonts
+    emacs-all-the-icons-fonts
+    #emojione
+    fantasque-sans-mono
+    fira-code
+    font-awesome-ttf
+   # google-fonts
+    hack-font
+    hasklig
+    iosevka
+    noto-fonts-emoji
+    powerline-fonts
+    material-icons
 
     # jsToolsEnv
     jq
@@ -82,7 +98,7 @@ in rec {
     enable = true;
     path = "https://github.com/rycee/home-manager/archive/master.tar.gz";
   };
-  home.stateVersion = "20.03";
+  home.stateVersion = "20.09";
 
 
 }
