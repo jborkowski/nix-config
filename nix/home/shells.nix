@@ -20,6 +20,11 @@ in
     direnv
   ];
 
+  home = {
+    username = "jobo";
+    homeDirectory = "/User/jobo";
+  };
+
   programs.broot = {
     enable = true;
     enableBashIntegration = true;
