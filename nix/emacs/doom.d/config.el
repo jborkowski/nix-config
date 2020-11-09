@@ -27,6 +27,10 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
+;;; Fonts
+(setq doom-font (font-spec :family "Hasklig" :size 14)
+      doom-variable-pitch-font (font-spec :family "Monaco" :size 16))
+
 (setq js-indent-level 2
       typescript-indent-level 2
       json-reformat:indent-width 2

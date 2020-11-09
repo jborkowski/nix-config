@@ -41,7 +41,6 @@ in rec {
     m4
     rtags
     sloccount
-#    valgrind
     wabt
 
     # Dev tools
@@ -50,10 +49,10 @@ in rec {
     tmux
     sqlite
     niv
-#    nixops
+    # purescript-language-server
+    # nixops
 
     # networkToolsEnv
- #   cacert
     dnsutils
     httpie
     iperf
@@ -68,10 +67,9 @@ in rec {
     dejavu_fonts
     emacs-all-the-icons-fonts
     #emojione
-    fantasque-sans-mono
+    #fantasque-sans-mono
     fira-code
     font-awesome-ttf
-   # google-fonts
     hack-font
     hasklig
     iosevka
@@ -87,6 +85,7 @@ in rec {
     nodePackages.csslint
     nodePackages.js-beautify
     nodePackages.prettier
+    nodePackages.purescript-language-server
   ];
 
   home.sessionVariables = {
