@@ -49,7 +49,6 @@ in rec {
     tmux
     sqlite
     niv
-    # purescript-language-server
     # nixops
 
     # networkToolsEnv
@@ -66,18 +65,16 @@ in rec {
 
     dejavu_fonts
     emacs-all-the-icons-fonts
-    #emojione
-    #fantasque-sans-mono
     fira-code
     font-awesome-ttf
     hack-font
     hasklig
-    iosevka
     noto-fonts-emoji
     powerline-fonts
     material-icons
 
     # jsToolsEnv
+    # Move this to own file
     jq
     jo
     nodejs
@@ -86,6 +83,7 @@ in rec {
     nodePackages.js-beautify
     nodePackages.prettier
     nodePackages.purescript-language-server
+    nodePackages.parcel-bundler
   ];
 
   home.sessionVariables = {
