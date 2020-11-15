@@ -49,7 +49,7 @@ in rec {
     tmux
     sqlite
     niv
-    # nixops
+    nixops
 
     # networkToolsEnv
     dnsutils
@@ -76,7 +76,6 @@ in rec {
     # jsToolsEnv
     # Move this to own file
     jq
-    jo
     nodejs
     nodePackages.eslint
     nodePackages.csslint

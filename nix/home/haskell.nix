@@ -9,7 +9,7 @@ in {
   home.packages = with pkgs.haskellPackages; [
 
     cachix
-    pandoc
+    # pandoc
     hlint
 
     hasktags
