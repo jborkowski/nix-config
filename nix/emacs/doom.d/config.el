@@ -63,7 +63,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-
+(setq neuron-default-zettelkasten-directory "~/zettelkasten")
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -81,7 +81,14 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;;
-;;
 
+(setq circe-network-options
+      '(("Freenode"
+         :tls t
+         :nick "jonatanb"
+         :sasl-username "jonatanb"
+         ;;:sasl-password "my-password"
+         :channels ("#haskell", "#nixos")
+         )))
 
 (setenv "PATH" (concat (getenv "PATH") ":/$HOME/.cabal/bin:/$HOME/.ghcup/bin"))

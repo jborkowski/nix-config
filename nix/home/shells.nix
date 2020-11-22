@@ -77,26 +77,8 @@ in
     fi # added by Nix installer
     '';
 
-
-    # interactiveShellInit = ''
-
-
   };
   
-
-  programs.bash = {
-    enable = true;
-    historyIgnore = [ "l" "ls" "cd" "exit" ];
-    historyControl = [ "erasedups" ];
-    inherit shellAliases;
-    initExtra = ''
-    if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
-      . ~/.nix-profile/etc/profile.d/nix.sh;
-      export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
-    fi # added by Nix installer
-    '';
-  };
-
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;

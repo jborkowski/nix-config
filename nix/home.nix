@@ -11,7 +11,10 @@ let
   ];
   fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in rec {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = false;
+  };
   programs.tmux.secureSocket = false;
 
   home = {
@@ -41,7 +44,6 @@ in rec {
     m4
     rtags
     sloccount
-    wabt
 
     # Dev tools
     (callPackage ./nvim {inherit fetchGH;})
@@ -50,6 +52,7 @@ in rec {
     sqlite
     niv
     nixops
+    metals
 
     # networkToolsEnv
     dnsutils
@@ -62,16 +65,6 @@ in rec {
     sipcalc
     wget
     znc
-
-    dejavu_fonts
-    emacs-all-the-icons-fonts
-    fira-code
-    font-awesome-ttf
-    hack-font
-    hasklig
-    noto-fonts-emoji
-    powerline-fonts
-    material-icons
 
     # jsToolsEnv
     # Move this to own file

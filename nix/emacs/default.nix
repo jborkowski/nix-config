@@ -7,6 +7,7 @@ let
 in {
   home.packages = [
     doom-emacs
+    pkgs.ispell
     # (pkgs.callPackage ./xterm-24bit.nix {})
   ];
   home.file.".emacs.d/init.el".text = ''
