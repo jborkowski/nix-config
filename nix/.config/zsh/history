@@ -1,0 +1,291 @@
+ii
+exit
+: 1601221910:1;vim nix-config/nix/home.n
+: 1601221920:41;vim nix/home.nix
+: 1601221967:12;sudo nixos-rebuild switch
+: 1601221999:67;vim nix/home.nix
+: 1601222067:6;sudo nixos-rebuild switch
+: 1601222112:7;vim nix/home.nix
+: 1601222128:30;vim nixos-configuration/asus-z390.nix
+: 1601222159:3;sudo nixos-rebuild switch
+: 1601222223:8;vim nixos-configuration/asus-z390.nix
+: 1601222234:17;sudo nixos-rebuild switch
+: 1601222310:0;_1password
+: 1601222322:11;vim nixos-configuration/asus-z390.nix
+: 1601222335:23;sudo nixos-rebuild switch
+: 1601222458:0;pwd
+: 1601222461:0;cd nix
+: 1601222468:347;vim scripts.nix
+: 1601222835:21;vim home.nix
+: 1601222860:16;sudo nixos-rebuild switch
+: 1601222984:56;vim scripts.nix
+: 1601223041:45;tmux
+: 1601223088:0;sudo nixos-rebuild switch
+: 1601223098:0;ll
+: 1601212973:0;ls
+: 1601212986:0;cd nix
+: 1601212992:0;mkdir emacs
+: 1601212996:0;cd emacs
+: 1601213018:0;touch default.nix
+: 1601213120:1371;vim default.nix
+: 1601214550:0;ls
+: 1601214551:0;cd ..
+: 1601214556:28;vim irc.nix
+: 1601214592:0;cd ..
+: 1601214598:0;cd nix
+: 1601214605:0;mv irc.nix /home/
+: 1601214608:0;mv irc.nix home/
+: 1601214609:0;ll
+: 1601214615:203;vim home.nix
+: 1601214822:13;sudo nixos-rebuild switch
+: 1601214847:49;vim emacs/default.nix
+: 1601214897:8;sudo nixos-rebuild switch
+: 1601214954:14;vim emacs/default.nix
+: 1601214969:8;sudo nixos-rebuild switch
+: 1601214986:15;vim emacs/default.nix
+: 1601215017:8;sudo nixos-rebuild switch
+: 1601215071:22;vim emacs/default.nix
+: 1601215096:8;sudo nixos-rebuild switch
+: 1601215123:116;vim emacs/default.nix
+: 1601215241:8;sudo nixos-rebuild switch
+: 1601215258:4;vim emacs/default.nix
+: 1601215264:30;sudo nixos-rebuild switch
+: 1601215325:2;emacs
+: 1601215416:1;nix-env -f "<nixpkgs>" -qaP -A emacsPackages.melpaPackages | grep zoom
+: 1601215529:0;ll
+: 1601215531:0;cd emacs
+: 1601215535:0;mkdir .emacs.d
+: 1601215537:0;cd .emacs.d
+: 1601215549:103;vim init.el
+: 1601215663:0;mkdir configs
+: 1601215666:0;cd ../
+: 1601215982:0;ll
+: 1601215987:0;cd ..
+: 1601215994:0;ll
+: 1601216003:22;vim home.nix
+: 1601216030:27;sudo nixos-rebuild switch
+: 1601216062:10;vim home.nix
+: 1601216074:62;sudo nixos-rebuild switch
+: 1601224239:0;cd ../nixos-configuration
+: 1601224016:38;vim i3status-rust.toml
+: 1601224065:0;ipa
+: 1601224067:0;ip a
+: 1601224090:0;docker
+: 1601224116:14;vim i3status-rust.toml
+: 1601224136:2058;sudo nixos-rebuild switch
+: 1601228752:0;cd ..
+: 1601228758:0;vim home.nix 
+: 1601228850:0;sudo nixos-rebuild switch
+: 1601228882:0;cd ../nixos-configuration
+: 1601277073:107;vim default.nix
+: 1601277263:0;cd ..
+: 1601320824:0;ll
+: 1601320826:0;tree
+: 1601320846:11;vim nix/home.nix
+: 1601323091:0;ll
+: 1601323094:0;cd nix
+: 1601323094:0;ll
+: 1601323099:0;cd ..
+: 1601323194:0;ll
+: 1601323311:61;vim nixos-configuration/asus-z390.nix
+: 1601323379:0;mkdir sources
+: 1601323381:0;cd sources
+: 1601323387:116;vim default.nix
+: 1601323510:50;vim sources.nix
+: 1601323561:0;nix-env -iA nixpkgs.niv
+: 1601323589:13;nix-env -iA niv -f https://github.com/nmattia/niv/tarball/master \\
+    --substituters https://niv.cachix.org \\
+    --trusted-public-keys niv.cachix.org-1:X32PCg2e/zAm3/uD1ScqW2z/K0LtDyNV7RdaxIuLgQM=
+: 1601323625:8;niv init
+: 1601323635:0;ll
+: 1601323639:0;cd nix
+: 1601323640:0;ll
+: 1601323643:0;cd ..
+: 1601323645:0;rm -rf
+: 1601323651:0;cd ..
+: 1601323659:0;rm -rf sources
+: 1601323668:6;niv init
+: 1601323711:0;niv add NUR
+: 1601323716:0;niv Add NUR
+: 1601323727:0;niv updates
+: 1601323734:0;niv 
+: 1601323755:0;niv add nixpkgs
+: 1601323814:0;cat nix/sources.json
+: 1601323856:0;nix add nix-community/nur-combined
+: 1601323900:0;nix add nix-community/NUR
+: 1601323907:1;niv add nix-community/NUR
+: 1601323934:1;niv add nix-community/emacs-overlay
+: 1601323955:0;niv add home-manager
+: 1601323965:2;niv update
+: 1601323970:0;niv add home-manager
+: 1601323982:2;niv add rycee/home-manager
+: 1601324024:1;niv add srid/neuron
+: 1601324044:1;niv add NixOS/nixos-hardware
+: 1601324080:1;niv add mjlbach/emacs-pgtk-nativecomp-overlay
+: 1601324093:2;niv update
+: 1601324142:0;ll
+: 1601324151:0;cd nix
+: 1601324153:0;ll
+: 1601324278:0;vim home.nix
+: 1601324311:0;cd ..
+: 1601324320:150;vim nixos-configuration/asus-z390.nix
+: 1601324475:6;sudo nixos-rebuild switch 
+: 1601324506:1;sudo nixos-rebuild switch  --show-trace
+: 1601324577:27;vim nixos-configuration/asus-z390.nix
+: 1601324605:2;sudo nixos-rebuild switch  --show-trace
+: 1601324612:0;sudo nixos-rebuild switch 
+: 1601324651:18;vim nix/sources.nix
+: 1601324740:9;vim nixos-configuration/asus-z390.nix
+: 1601324752:0;sudo nixos-rebuild switch 
+: 1601324773:94;vim nixos-configuration/asus-z390.nix
+: 1601324869:1;sudo nixos-rebuild switch 
+: 1601324881:14;vim nixos-configuration/asus-z390.nix
+: 1601324896:1;sudo nixos-rebuild switch 
+: 1601324902:68;vim nixos-configuration/asus-z390.nix
+: 1601324980:31;vim nix/sources.nix
+: 1601325017:0;niv show
+: 1601325162:0;:q
+: 1601325166:91;vim nixos-configuration/asus-z390.nix
+: 1601325263:4;sudo nixos-rebuild switch 
+: 1601325274:22;vim nixos-configuration/asus-z390.nix
+: 1601325298:1;sudo nixos-rebuild switch 
+: 1601325318:43;vim nixos-configuration/asus-z390.nix
+: 1601325363:20;sudo nixos-rebuild switch 
+: 1601325389:76;vim nixos-configuration/asus-z390.nix
+: 1601325467:9;sudo nixos-rebuild switch 
+: 1601325480:36;vim nixos-configuration/asus-z390.nix
+: 1601325518:24;sudo nixos-rebuild switch 
+: 1601325619:0;ll
+: 1601325621:0;cd nix
+: 1601325622:0;ll
+: 1601325632:0;vim home/emacs.nix
+: 1601325740:0;sudo nixos-rebuild switch 
+: 1601325754:0;vim nixos-configuration/asus-z390.nix
+: 1601325764:0;vim ../nixos-configuration/asus-z390.nix
+: 1601326022:0;vim nixos-configuration/asus-z390.nix
+: 1601326027:0;sudo nixos-rebuild switch 
+: 1601326033:0;vim nixos-configuration/asus-z390.nix
+: 1601326037:0;vim ../nixos-configuration/asus-z390.nix
+: 1601326074:0;vim home/emacs.nix
+: 1601326114:0;sudo nixos-rebuild switch 
+: 1601326508:0;vim ../nixos-configuration/asus-z390.nix
+: 1601326562:0;sudo nixos-rebuild switch 
+: 1601326575:0;vim ../nixos-configuration/asus-z390.nix
+: 1601326628:0;sudo nixos-rebuild switch 
+: 1601326634:0;vim ../nixos-configuration/asus-z390.nix
+: 1601326669:0;sudo nixos-rebuild switch 
+: 1601326679:0;vim ../nixos-configuration/asus-z390.nix
+: 1601326702:0;sudo nixos-rebuild switch 
+: 1601326714:0;vim home.nix
+: 1601326724:0;sudo nixos-rebuild switch 
+: 1601326731:0;vim ../nixos-configuration/asus-z390.nix
+: 1601326745:0;sudo nixos-rebuild switch 
+: 1601326754:0;vim ../nixos-configuration/asus-z390.nix
+: 1601326967:0;sudo nixos-rebuild switch 
+: 1601326971:0;vim ../nixos-configuration/asus-z390.nix
+: 1601326986:0;sudo nixos-rebuild switch 
+: 1601326991:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327027:0;sudo nixos-rebuild switch 
+: 1601327031:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327143:0;sudo nixos-rebuild switch 
+: 1601327149:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327186:0;sudo nixos-rebuild switch 
+: 1601327203:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327236:0;sudo nixos-rebuild switch 
+: 1601327244:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327420:0;sudo nixos-rebuild switch 
+: 1601327432:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327498:0;sudo nixos-rebuild switch 
+: 1601327512:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327588:0;sudo nixos-rebuild switch 
+: 1601327620:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327644:0;sudo nixos-rebuild switch 
+: 1601327656:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327684:0;sudo nixos-rebuild switch 
+: 1601327710:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327725:0;sudo nixos-rebuild switch 
+: 1601327735:0;vim ../nixos-configuration/asus-z390.nix
+: 1601327751:0;sudo nixos-rebuild switch 
+: 1601328013:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328081:0;sudo nixos-rebuild switch 
+: 1601328104:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328128:0;sudo nixos-rebuild switch 
+: 1601328140:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328161:0;sudo nixos-rebuild switch 
+: 1601328173:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328183:0;sudo nixos-rebuild switch 
+: 1601328211:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328231:0;sudo nixos-rebuild switch 
+: 1601328261:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328306:0;sudo nixos-rebuild switch 
+: 1601328314:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328329:0;sudo nixos-rebuild switch 
+: 1601328339:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328386:0;sudo nixos-rebuild switch 
+: 1601328482:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328500:0;sudo nixos-rebuild switch 
+: 1601328513:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328570:0;sudo nixos-rebuild switch 
+: 1601328577:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328639:0;sudo nixos-rebuild switch 
+: 1601328651:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328665:0;sudo nixos-rebuild switch 
+: 1601328693:0;vim ../nixos-configuration/asus-z390.nix
+: 1601328724:0;sudo nixos-rebuild switch 
+: 1601328747:0;vim home/emacs.nix
+: 1601328846:0;vim home.nix
+: 1601328871:0;sudo nixos-rebuild switch 
+: 1601328897:0;sudo nixos-rebuild switch  --show-trace
+: 1601328908:0;vim home.nix
+: 1601328925:0;vim home/emacs.nix
+: 1601328941:0;sudo nixos-rebuild switch  --show-trace
+: 1601328947:0;sudo nixos-rebuild switch 
+: 1601328956:0;vim home/emacs.nix
+: 1601328978:0;sudo nixos-rebuild switch 
+: 1601329011:0;vim home/emacs.nix
+: 1601329034:0;sudo nixos-rebuild switch 
+: 1601329041:0;vim home/emacs.nix
+: 1601329051:0;sudo nixos-rebuild switch 
+: 1601329081:0;vim home/emacs.nix
+: 1601329311:0;sudo nixos-rebuild switch 
+: 1601329320:0;vim home/emacs.nix
+: 1601329329:0;sudo nixos-rebuild switch 
+: 1601329339:0;vim home/emacs.nix
+: 1601329350:0;sudo nixos-rebuild switch 
+: 1601329408:0;vim home/emacs.nix
+: 1601329609:0;vim home.nix
+: 1601329689:0;sudo nixos-rebuild switch 
+: 1601329706:0;vim home.nix
+: 1601329748:0;sudo nixos-rebuild switch 
+: 1601329845:0;~/vim nix-config/nixos-configuration/asus-z390.nix
+: 1601329852:0;vim ~/nix-config/nixos-configuration/asus-z390.nix
+: 1601329969:0;sudo nixos-rebuild switch 
+: 1601329984:0;vim ~/nix-config/nixos-configuration/asus-z390.nix
+: 1601330349:0;sudo nixos-rebuild switch 
+: 1601330400:0;vim home/emacs.nix
+: 1601330627:0;sudo nixos-rebuild switch 
+: 1601330917:0;emacs
+: 1601330959:0;vim home/emacs.nix
+: 1601331226:0;sudo nixos-rebuild switch 
+: 1601331406:0;vim home/emacs.nix
+: 1601331684:0;sudo nixos-rebuild switch 
+: 1601331751:0;vim home/emacs.nix
+: 1601332463:0;sudo nixos-rebuild switch 
+: 1601332479:0;vim home/emacs.nix
+: 1601332492:0;sudo nixos-rebuild switch 
+: 1601332552:0;vim home/emacs.nix
+: 1601332587:0;sudo nixos-rebuild switch 
+: 1601333259:0;vim home/emacs.nix
+: 1601333315:0;sudo nixos-rebuild switch 
+: 1601333367:0;vim home/emacs.nix
+: 1601333492:0;sudo nixos-rebuild switch 
+: 1601681388:0;cd ../nixos
+: 1606324687:0;ll
+: 1606324700:0;cd nix
+: 1606324701:0;ll
+: 1606324706:0;cd home
+: 1606324833:0;ll
+: 1606324844:0;cd nix
+: 1606324845:0;ll
+: 1606324853:0;niv update
+: 1606324879:0;cd ..

@@ -5,34 +5,34 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ab8ce52fcc14f34b7a744a24755ae66655c6b10e",
-        "sha256": "0vs3d44lq6rh5gpp6xr5wqydqnlnd84d7mj7w46n5iawxsy37ylm",
+        "rev": "b9415efadb509c766935f0546c06b1762a06acd8",
+        "sha256": "1jkwjhmnmyglfdn20js99k1fa77jh6xya91s21s5k32a66xd64kq",
         "type": "tarball",
-        "url": "https://github.com/nix-community/NUR/archive/ab8ce52fcc14f34b7a744a24755ae66655c6b10e.tar.gz",
+        "url": "https://github.com/nix-community/NUR/archive/b9415efadb509c766935f0546c06b1762a06acd8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "emacs-overlay": {
+    "easy-purescript-nix": {
         "branch": "master",
-        "description": "Bleeding edge emacs overlay [maintainer=@adisbladis] ",
+        "description": "Easy PureScript (and other tools) with Nix",
         "homepage": "",
-        "owner": "nix-community",
-        "repo": "emacs-overlay",
-        "rev": "e69eb101215ecbd4cef7b0fe4b876d686122f98f",
-        "sha256": "1m96d12hgp4m1b07mxdpdnwvg8h136h1j2pdzlxaripd49iby6d8",
+        "owner": "justinwoo",
+        "repo": "easy-purescript-nix",
+        "rev": "7b1c1635e16c7f12065db2f8ec049030fcc63655",
+        "sha256": "1nybcann9aiwbvj95p6wam8xyhxwaxmfnkxmgylxcw42np2lvbzr",
         "type": "tarball",
-        "url": "https://github.com/nix-community/emacs-overlay/archive/e69eb101215ecbd4cef7b0fe4b876d686122f98f.tar.gz",
+        "url": "https://github.com/justinwoo/easy-purescript-nix/archive/7b1c1635e16c7f12065db2f8ec049030fcc63655.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "emacs-pgtk-nativecomp-overlay": {
+    "foliate": {
         "branch": "master",
-        "description": "nix overlay for emacs with native compilation and pgtk, based on emacs-overlay and cachix templates",
-        "homepage": "",
-        "owner": "mjlbach",
-        "repo": "emacs-pgtk-nativecomp-overlay",
-        "rev": "ea6d7932433d0b53f9f1ae7fda1f5c142557ca4b",
-        "sha256": "06f5hhsyd3ik89lr3w241hzd4xkmbxwcxx43j8p5dj9913y6ayqg",
+        "description": "A simple and modern GTK eBook reader",
+        "homepage": "https://johnfactotum.github.io/foliate/",
+        "owner": "johnfactotum",
+        "repo": "foliate",
+        "rev": "9d6bae65a63f1f790c3cfd426dcdabc4b31ce9f8",
+        "sha256": "0hbqxzmapxsrrj75kbdsd7akc7l697krvxi92g0nprzyxksbp6ch",
         "type": "tarball",
-        "url": "https://github.com/mjlbach/emacs-pgtk-nativecomp-overlay/archive/ea6d7932433d0b53f9f1ae7fda1f5c142557ca4b.tar.gz",
+        "url": "https://github.com/johnfactotum/foliate/archive/9d6bae65a63f1f790c3cfd426dcdabc4b31ce9f8.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "home-manager": {
@@ -41,10 +41,10 @@
         "homepage": "https://rycee.gitlab.io/home-manager/",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "521a808151abccce34c3a9f55f4f331aa281e290",
-        "sha256": "1axfndp6wwyv11sa8gf308d208sd21vipnq3h3gyb3nz2f52x6l1",
+        "rev": "a3a0f1289acac24ce2ffe0481bf8cabd3a6ccc64",
+        "sha256": "0vkimslwfgv0a71qj93ama71xk5dwp00sb8j67axz1j5nnp0k3nv",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/521a808151abccce34c3a9f55f4f331aa281e290.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/a3a0f1289acac24ce2ffe0481bf8cabd3a6ccc64.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "neuron": {
@@ -53,10 +53,10 @@
         "homepage": "https://neuron.zettel.page",
         "owner": "srid",
         "repo": "neuron",
-        "rev": "2624652de62ed959dc2c027a6e6af920aba572fa",
-        "sha256": "1jh0xwiy3b8jqv3wk4wwpmx08rk7bbz21z3975382sw12p47vw4w",
+        "rev": "fb1137fa9f902d068ee78e67fc2d8b0ae0035a3d",
+        "sha256": "1zcpmksf4m47a0fd18xwd56bywbb7k6scya2z44qbf928sa4zyss",
         "type": "tarball",
-        "url": "https://github.com/srid/neuron/archive/2624652de62ed959dc2c027a6e6af920aba572fa.tar.gz",
+        "url": "https://github.com/srid/neuron/archive/fb1137fa9f902d068ee78e67fc2d8b0ae0035a3d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -65,10 +65,10 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "29ddaaf4e099c3ac0647f5b652469dfc79cd3b53",
-        "sha256": "1va6myp07gkspgxfch8z3rs9nyvys6jmgzkys6a2c4j09qxp1bs0",
+        "rev": "ba57d5a29b4e0f2085917010380ef3ddc3cf380f",
+        "sha256": "1kpsvc53x821cmjg1khvp1nz7906gczq8mp83664cr15h94sh8i4",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/29ddaaf4e099c3ac0647f5b652469dfc79cd3b53.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/ba57d5a29b4e0f2085917010380ef3ddc3cf380f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nix-doom-emacs": {
@@ -77,10 +77,10 @@
         "homepage": "",
         "owner": "vlaci",
         "repo": "nix-doom-emacs",
-        "rev": "5f4bcd36a276ecbb3a6564520122ec3f3dc180d3",
-        "sha256": "1fbi5n5kzh6c1z90mqgz49ysf1j8haqlsyfc6m1g5a2vvm9v8dry",
+        "rev": "fcc395f3db3adb36d1055cea4da2f8c8e368e56e",
+        "sha256": "0b26qnsn3ycki1favkgd4isvh4qgvqqq7kkl0wkciyfgn95jgqd9",
         "type": "tarball",
-        "url": "https://github.com/vlaci/nix-doom-emacs/archive/5f4bcd36a276ecbb3a6564520122ec3f3dc180d3.tar.gz",
+        "url": "https://github.com/vlaci/nix-doom-emacs/archive/fcc395f3db3adb36d1055cea4da2f8c8e368e56e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-hardware": {
@@ -89,22 +89,22 @@
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "684eaddf74109b2bedb8b585a25714eb9ea5c54e",
-        "sha256": "1f6vi1jg8kdq0dk0kjkj1q401c21g4bblhq4r56wwfvndh0z3wx3",
+        "rev": "40ade7c0349d31e9f9722c7331de3c473f65dce0",
+        "sha256": "07mp73a5gyppv0cd08l1wdr8m5phfmbphsn6v7w7x54fa8p2ci6y",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixos-hardware/archive/684eaddf74109b2bedb8b585a25714eb9ea5c54e.tar.gz",
+        "url": "https://github.com/NixOS/nixos-hardware/archive/40ade7c0349d31e9f9722c7331de3c473f65dce0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
-        "branch": "release-20.03",
+        "branch": "release-20.09",
         "description": "Nix Packages collection",
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "629fe7b145033e2ce71e458d5fbb4efb3196ab87",
-        "sha256": "0kn7wgvsjry4k9pnq5lhqi31sn7bn9nwfqxlwpnmkb5s4fxzfnb1",
+        "rev": "280e05f55504f6601a9deafad7e1dce4553c6cd7",
+        "sha256": "0q96hmlz6sgqz3hyh2cn10h8gbi9dmlk3vs0jhap4ln8armgq571",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/629fe7b145033e2ce71e458d5fbb4efb3196ab87.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/280e05f55504f6601a9deafad7e1dce4553c6cd7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

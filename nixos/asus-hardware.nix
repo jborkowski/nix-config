@@ -36,7 +36,7 @@
     # Bluetooth
     # https://nixos.wiki/wiki/Bluetooth
     bluetooth = {
-      enable = true;
+      enable = false;
       # For Bose QC 35
       config = {
         General = {
@@ -44,6 +44,7 @@
         };
       };
     };
+
   };
 
 }

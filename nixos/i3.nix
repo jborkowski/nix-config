@@ -11,9 +11,15 @@
     autoRepeatDelay = 220;
     libinput.naturalScrolling = true;
     displayManager = {
+      autoLogin = { enable = false; user = "jonatanb"; };
       defaultSession = "none+i3";
       sessionCommands = ''
+
+        xrdb -merge <(python3 ${./PyURxvtMeta8})
+
         xrdb "${./xresources}"
+        nextcloud --background &
+
       '';
     };
 

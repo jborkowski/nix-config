@@ -93,7 +93,6 @@ in
     enable = true;
     historyIgnore = [ "l" "ls" "cd" "exit" ];
     historyControl = [ "erasedups" ];
-    enableAutojump = true;
     inherit shellAliases;
     initExtra = ''
     if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
@@ -102,6 +101,8 @@ in
     fi # added by Nix installer
     '';
   };
+
+  programs.autojump.enable = true;
 
   programs.fzf = {
     enable = true;

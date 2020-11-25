@@ -19,8 +19,8 @@ in {
         "${mod}+Ctrl+x" = "exec screenshot-to-zettelkasten";
         "${mod}+Shift+x" = "exec lockscreen";
 
-        "${mod}+c" = "exec ${pkgs.clipmenu}/bin/clipcopy";
-        "${mod}+v" = "exec ${pkgs.clipmenu}/bin/clippaste";
+        #"${mod}+c" = "exec ${pkgs.clipmenu}/bin/clipcopy";
+        #"${mod}+v" = "exec ${pkgs.clipmenu}/bin/clippaste";
 
         # Focus
         "${mod}+h" = "focus left";
@@ -35,13 +35,15 @@ in {
         "${mod}+Shift+l" = "move right";
 
         # Split
-        "${mod}+s"   = "split h";
-        "${mod}+s+v" = "split v";
-        
+        "${mod}+b" = "split h";
+        "${mod}+v" = "split v";
+
+        # Toggle
+        "${mod}+Shit+space" = "floating toggle";
+        "${mod}+space" = "mode_toggle";
+
         # Emacs
-        "${mod}+i"      = "exec emacsclient -c";
-        "${mod}+Ctrl+i" = "exec pkill emacs && emacs --daemon && emacsclient -c";
-        "${mod}+Shift+i" = "exec emacs -ib 16";
+        "${mod}+i" = "exec emacs -ib 16";
       };
 
       bars = [

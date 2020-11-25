@@ -8,7 +8,7 @@
     package = pkgs.gitAndTools.gitFull;
     enable = true;
     userName = "Jonatan Borkowski";
-    userEmail = "jonatan.borkowski@pm.em";
+    userEmail = "jonatan.borkowski@pm.me";
     ignores = [
       "#*#"
       "*.a"

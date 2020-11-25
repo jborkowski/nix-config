@@ -3,12 +3,19 @@
 let
   hostName = "monadic-killer";
   sources = import ../nix/sources.nix;
+  nurpkgs = import sources.nixpkgs { };
+  nurNoPkgs = import sources.NUR { inherit pkgs nurpkgs; };
   nixos-hardware = import sources.nixos-hardware;
   nixpkgs = if pkgs == null then sources.nixpkgs else pkgs;
   lib = sources.nixpkgs + "/lib";
   home-manager = sources.home-manager + "/nixos";
   cpu_intel = sources.nixos-hardware + "/common/cpu/intel";
   ssd = sources.nixos-hardware + "/common/pc/ssd";
+  full_urxvt_unicode = pkgs.rxvt-unicode.override { configure = { availablePlugins, ... }: {
+    plugins = with availablePlugins; [ perls resize-font perl ];
+    };
+  };
+
 in {
 
   imports =
@@ -24,6 +31,11 @@ in {
       ../nixos/openvpn.nix
       ../nixos/postgresql.nix
     ];
+
+  location = {
+    latitude = 52.229676;
+    longitude = 21.012229;
+  };
 
   home-manager.users.jonatanb = (import ../nix/home.nix {
     inherit pkgs config hostName sources nixpkgs;
@@ -44,10 +56,6 @@ in {
 
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [
-      (import (import ../nix/sources.nix).emacs-overlay)
-      (import (import ../nix/sources.nix).emacs-pgtk-nativecomp-overlay)
-    ];
   };
   nix.trustedUsers = [ "root" "jonatanb" ];
 
@@ -80,8 +88,10 @@ in {
     _1password
     _1password-gui
     chromium
-    rxvt_unicode
+    google-chrome
+    full_urxvt_unicode
     clipmenu
+    nurNoPkgs.repos.onny.foliate
   ];
 
   environment.interactiveShellInit = ''
@@ -115,13 +125,26 @@ in {
     shell = pkgs.zsh;
   };
 
+  services.redshift = {
+    enable = true;
+    brightness = {
+      # Note the string values below.
+      day = "1";
+      night = "1";
+    };
+    temperature = {
+      day = 5500;
+      night = 3700;
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.03"; # Did you read the comment?
+  system.stateVersion = "20.09"; # Did you read the comment?
 
 }
 

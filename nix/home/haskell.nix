@@ -1,42 +1,32 @@
 { pkgs, fetchGH, ... }:
 
 let
-  ormoluSrc = fetchGH "tweag/ormolu" "dec158c";
-
-  ghcideNixSrc = fetchGH "cachix/ghcide-nix" "7014271";
-
-  easyPS = fetchGH "justinwoo/easy-purescript-nix" "1ec689d";
-
-  haskellOverridez = fetchGH "adetokunbo/haskell-overridez" "v0.10.3.1";
-
-  # https://github.com/haskell/cabal/issues/4739#issuecomment-359209133
-  macOSCaseNameFix = drv:
-   pkgs.haskell.lib.appendConfigureFlag drv "--ghc-option=-optP-Wno-nonportable-include-path";
+  sources = import ../sources.nix;
+  easy-ps = import sources.easy-purescript-nix {};
 in {
 
   home.packages = with pkgs.haskellPackages; [
+    styx
+    # threadscope
 
-    # Some commonly used tools
     cachix
-    pandoc
+    # pandoc
     hlint
 
+    hasktags
     hoogle
     stack
     stylish-haskell
-    (import easyPS {}).purs-0_13_6
-    (import easyPS {}).spago
+    ormolu
+    ghcide
 
     cabal2nix
-    styx
 
-    (import haskellOverridez {}).haskell-overridez
-
-    # ormolu code formatter
-    # (macOSCaseNameFix (import ormoluSrc { }).ormolu)
-    # (import ghcideNixSrc {}).ghcide-ghc865
-   (import ghcideNixSrc {}).ghcide-ghc884
-    # (import ghcideNixSrc {}).ghcide-ghc8102
+    # purescript
+    easy-ps.purs-0_13_8
+    easy-ps.spago
+    easy-ps.zephyr
+    easy-ps.purty
   ];
 
   home.file = {

@@ -24,6 +24,10 @@ in rec {
 
   imports = allPlatformImports;
 
+
+  programs.direnv.enable = true;
+  programs.direnv.enableNixDirenvIntegration = true;
+
   home.packages = with pkgs; [
     # Basic tools
     htop
@@ -44,7 +48,7 @@ in rec {
 
 
     # Dev tools
-    
+
     (callPackage ./home/nvim { inherit fetchGH; })
     ripgrep
     tmux
@@ -102,6 +106,8 @@ in rec {
     nodePackages.csslint
     nodePackages.js-beautify
     nodePackages.prettier
+    nodePackages.purescript-language-server
+    nodePackages.parcel-bundler
 
     # communication
     slack
@@ -130,6 +136,13 @@ in rec {
     ranger
 
     tree
+
+    pavucontrol
+
+    redshift
+
+    streamlink
+    streamlink-twitch-gui-bin
   ];
 
   home.sessionVariables = {
@@ -144,7 +157,7 @@ in rec {
   };
 
 
-  home.stateVersion = "20.03";
+  home.stateVersion = "20.09";
 
 
 }
