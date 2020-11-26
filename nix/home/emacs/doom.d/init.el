@@ -36,8 +36,8 @@
        ;;indent-guides     ; highlighted indent columns
        (ligatures
         ;;+extra
-        ;;+fira
-        +hasklig
+        +fira
+        ;;+hasklig
         ;;+iosevka
         ;;+pragmata-pro         ; ligatures and symbols to make your code pretty again
         )
@@ -191,9 +191,9 @@
 
        :app
        calendar
-       irc               ; how neckbeards socialize
+       ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
-       twitter           ; twitter client https://twitter.com/vnought
+       ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config
        ;;literate

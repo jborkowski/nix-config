@@ -143,6 +143,8 @@ in rec {
 
     streamlink
     streamlink-twitch-gui-bin
+
+    teams
   ];
 
   home.sessionVariables = {

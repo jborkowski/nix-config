@@ -17,6 +17,7 @@
       emacs-all-the-icons-fonts
       #fantasque-sans-mono
       fira-code
+      fira-code-symbols
       font-awesome-ttf
       google-fonts
       hack-font

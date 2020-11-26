@@ -28,8 +28,8 @@
 (setq doom-theme 'doom-one)
 
 ;;; Fonts
-(setq doom-font (font-spec :family "Hasklig" :size 16)
-      doom-variable-pitch-font (font-spec :family "Hasklig" :size 18))
+(setq doom-font (font-spec :family "Fira Code" :size 18)
+      doom-variable-pitch-font (font-spec :family "Fira Code" :size 18))
 
 (setq js-indent-level 2
       typescript-indent-level 2
