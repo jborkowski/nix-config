@@ -30,6 +30,7 @@ in {
       ../nixos/caches.nix
       ../nixos/openvpn.nix
       ../nixos/postgresql.nix
+      ../nixos/yubikey.nix
     ];
 
   location = {
@@ -57,7 +58,28 @@ in {
   nixpkgs = {
     config.allowUnfree = true;
   };
-  nix.trustedUsers = [ "root" "jonatanb" ];
+
+  # Nix daemon config
+  nix = {
+    # Automate `nix-store --optimise`
+    autoOptimiseStore = true;
+
+    # Automate garbage collection
+    gc = {
+      automatic = true;
+      dates     = "weekly";
+      options   = "--delete-older-than 7d";
+    };
+
+    # Avoid unwanted garbage collection when using nix-direnv
+    extraOptions = ''
+      keep-outputs     = true
+      keep-derivations = true
+    '';
+
+    # Required by Cachix to be used as non-root user
+    trustedUsers = [ "root" "jonatanb" ];
+  };
 
   networking = {
     inherit hostName;
@@ -111,11 +133,6 @@ in {
   };
 
   services.clipmenu.enable = true;
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "pl";
-  # services.xserver.xkbOptions = "eurosign:e";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jonatanb = {
