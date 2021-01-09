@@ -7,14 +7,12 @@ git clone https://github.com/jborkowski/nix-config.git ~/
 ```
 Add and update channels:
 ```
-$ sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
-$ sudo nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
-$ 
-$ sudo nix-channel --update
+$ nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz home-manager
+$ nix-channel --update
 ```
 Install Home Manager
 ```
-$ export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 $ mkdir -p $HOME/.config/nixpkgs/
 $ nix-shell '<home-manager>' -A install
 ```
