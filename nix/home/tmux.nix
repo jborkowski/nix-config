@@ -13,6 +13,7 @@
     escapeTime = 0;
     clock24 = true;
     terminal = "screen-256color";
+    secureSocket = false;
 
     extraConfig = ''
       set-option -g display-time 2000

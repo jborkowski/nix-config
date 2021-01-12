@@ -1,29 +1,37 @@
 { config, pkgs, ...}:
 
 let
-  allPlatformImports = [
-    ./home/git.nix
-    ./home/haskell.nix
-    ./home/shells.nix
-    ./home/tmux.nix
-    ./home/i3.nix
-    ./home/irc.nix
-    (import ./home/vscode.nix { inherit pkgs; } )
-    (import ./home/emacs { inherit pkgs; })
-    ./scripts.nix
-  ];
-  fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
+    terminal = [
+        (import ./home/alacritty { fontSize = 6; inherit pkgs; })
+        ./home/shells.nix
+        ./home/tmux.nix
+    ];
+    editor  = [
+        (import ./home/emacs { inherit pkgs; })
+        (import ./home/vscode.nix { inherit pkgs; } )
+    ];
+    wm = [
+        ./home/i3.nix
+    ];
+    misc = [
+        ./home/git.nix
+        ./home/irc.nix
+        ./scripts.nix
+    ];
+    dev = [
+        ./home/haskell.nix
+    ];
+
+    fetchGH = fq: rev: builtins.fetchTarball ("https://github.com/" + fq + "/archive/" + rev + ".tar.gz");
 in rec {
   nixpkgs.config.allowUnfree = true;
-  programs.tmux.secureSocket = false;
 
   # Utility functions
   _module.args = {
     inherit fetchGH;
   };
 
-  imports = allPlatformImports;
-
+  imports = terminal ++ editor ++ wm ++ misc ++ dev;
 
   programs.direnv.enable = true;
   programs.direnv.enableNixDirenvIntegration = true;
@@ -46,7 +54,6 @@ in rec {
     valgrind
     wabt
 
-
     # Dev tools
 
     (callPackage ./home/nvim { inherit fetchGH; })
@@ -55,8 +62,7 @@ in rec {
     sqlite
     stow
     nixops
-    idea.idea-community
-    sbt
+    # sbt
 
     # gitToolsEnv
     diffstat
@@ -83,20 +89,9 @@ in rec {
     # networkToolsEnv
     cacert
     dnsutils
-    go-jira
-    httpie
-    httrack
     iperf
     lftp
-    mitmproxy
-    mtr
-    nmap
-    openvpn
-    pdnsd
     rsync
-    sipcalc
-    wget
-    znc
 
     # jsToolsEnv
     jq
@@ -110,15 +105,12 @@ in rec {
     nodePackages.parcel-bundler
 
     # communication
-    slack
-    protonmail-bridge
-    discord
+    #slack
+    #protonmail-bridge
+    #discord
 
     # cloud
     nextcloud-client
-
-    # office
-    libreoffice
 
     # pdf
     mupdf
@@ -139,27 +131,25 @@ in rec {
 
     pavucontrol
 
-    redshift
-
     streamlink
     streamlink-twitch-gui-bin
 
-    teams
+    # teams
   ];
 
-  home.sessionVariables = {
-    EDITOR = "emacs";
-    TMUX_TMPDIR = "/tmp";
-    QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
-    QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+  home = {
+    username = "jobo";
+    homeDirectory = "/home/jobo";
+    stateVersion = "20.09";
+ 
+    sessionVariables = {
+      EDITOR = "emacs";
+      TMUX_TMPDIR = "/tmp";
+      QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+      QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+    };
   };
-
   programs.home-manager = {
     enable = true;
   };
-
-
-  home.stateVersion = "20.09";
-
-
 }
