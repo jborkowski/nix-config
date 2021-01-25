@@ -16,11 +16,9 @@ in {
     hasktags
     hoogle
     stack
-    stylish-haskell
-    ormolu
-    ghcide
-
-    cabal2nix
+    # stylish-haskell
+    # ormolu
+    # ghcide
 
     # purescript
     easy-ps.purs-0_13_8

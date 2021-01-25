@@ -63,6 +63,7 @@ in rec {
     stow
     nixops
     # sbt
+    dbeaver
 
     # gitToolsEnv
     diffstat

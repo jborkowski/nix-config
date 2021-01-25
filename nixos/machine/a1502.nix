@@ -46,7 +46,7 @@
       light powertop lm_sensors networkmanagerapplet
       brightnessctl playerctl
 
-      chromium tdesktop
+      chromium tdesktop 
       _1password _1password-gui nextcloud-client
     ];
   };
@@ -66,7 +66,6 @@
 
     # bluetooth control
     blueman.enable = true;
-
     # monitor and manage CPU temp, throttling as needed
     thermald.enable = true;
 
@@ -143,9 +142,11 @@
         '';
       };
 
-      windowManager = {
-        i3.enable = true;
+      windowManager.i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
       };
+
 
       # Enable touchpad support
       libinput = {
@@ -203,7 +204,14 @@
       package = pkgs.pulseaudioFull;
     };
 
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      config = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
+    };
   };
 
   # Define a user account.
@@ -231,6 +239,8 @@
     "srid.cachix.org-1:MTQ6ksbfz3LBMmjyPh0PLmos+1x+CdtJxA/J2W+PQxI="
   ];
 
+   virtualisation.virtualbox.host.enable = true;
+   users.extraGroups.vboxusers.members = [ "jobo" ];
   # Allow unfree packages system-wide. To allow access to unfree packages
   # in nix-env, also set:
   #

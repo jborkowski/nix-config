@@ -92,3 +92,5 @@
          )))
 
 (setenv "PATH" (concat (getenv "PATH") ":/$HOME/.cabal/bin:/$HOME/.ghcup/bin"))
+
+(setq haskell-stylish-on-save t)
