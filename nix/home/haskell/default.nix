@@ -1,24 +1,27 @@
 { pkgs, fetchGH, ... }:
 
 let
-  sources = import ../sources.nix;
+  sources = import ../../sources.nix;
   easy-ps = import sources.easy-purescript-nix {};
 in {
 
   home.packages = with pkgs.haskellPackages; [
     styx
-    # threadscope
+    cabal2nix
+    nix-tree
 
-    cachix
-    # pandoc
+    cabal-install
+    ghc
+    haskell-language-server
+
     hlint
 
     hasktags
     hoogle
     stack
-    # stylish-haskell
+    stylish-haskell
+    # thradscope
     # ormolu
-    # ghcide
 
     # purescript
     easy-ps.purs-0_13_8
