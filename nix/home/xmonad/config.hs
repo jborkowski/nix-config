@@ -1,112 +1,50 @@
 -- Imports for Polybar --
-import qualified Codec.Binary.UTF8.String as UTF8
-import qualified Control.Exception as E
-import Control.Monad (replicateM_)
-import qualified DBus as D
-import qualified DBus.Client as D
-import Data.Foldable (traverse_)
-import qualified Data.Map as M
-import Data.Monoid
-import Graphics.X11.ExtraTypes.XF86
-import System.Exit
-import System.IO
-  ( hClose,
-    hPutStr,
-  )
-import XMonad
-import XMonad.Actions.CycleWS
-  ( Direction1D (..),
-    WSType (..),
-    findWorkspace,
-  )
-import XMonad.Actions.DynamicProjects
-  ( Project (..),
-    dynamicProjects,
-    switchProjectPrompt,
-  )
-import XMonad.Actions.DynamicWorkspaces (removeWorkspace)
-import XMonad.Actions.FloatKeys
-  ( keysAbsResizeWindow,
-    keysResizeWindow,
-  )
-import XMonad.Actions.RotSlaves (rotSlavesUp)
-import XMonad.Actions.SpawnOn
-  ( manageSpawn,
-    spawnOn,
-  )
-import XMonad.Actions.WithAll (killAll)
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.EwmhDesktops
-  ( ewmh,
-    ewmhDesktopsEventHook,
-    fullscreenEventHook,
-  )
-import XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
-import XMonad.Hooks.InsertPosition
-  ( Focus (Newer),
-    Position (Below),
-    insertPosition,
-  )
-import XMonad.Hooks.ManageDocks
-  ( Direction2D (..),
-    ToggleStruts (..),
-    avoidStruts,
-    docks,
-    docksEventHook,
-  )
-import XMonad.Hooks.ManageHelpers
-  ( composeOne,
-    doCenterFloat,
-    doFullFloat,
-    isDialog,
-    isFullscreen,
-    isInProperty,
-    (-?>),
-  )
-import XMonad.Hooks.UrgencyHook
-  ( UrgencyHook (..),
-    withUrgencyHook,
-  )
-import XMonad.Layout.Gaps (gaps)
-import XMonad.Layout.MultiToggle
-  ( Toggle (..),
-    mkToggle,
-    single,
-  )
-import XMonad.Layout.MultiToggle.Instances (StdTransformers (NBFULL))
-import XMonad.Layout.NoBorders (smartBorders)
-import XMonad.Layout.PerWorkspace (onWorkspace)
-import XMonad.Layout.Spacing (spacing)
-import XMonad.Layout.ThreeColumns (ThreeCol (..))
-import XMonad.Prompt
-  ( XPConfig (..),
-    XPPosition (CenteredAt),
-    amberXPConfig,
-  )
-import qualified XMonad.StackSet as W
-import XMonad.Util.EZConfig (mkNamedKeymap)
-import XMonad.Util.NamedActions
-  ( NamedAction (..),
-    addDescrKeys',
-    addName,
-    showKm,
-    subtitle,
-    (^++^),
-  )
-import XMonad.Util.NamedScratchpad
-  ( NamedScratchpad (..),
-    customFloating,
-    defaultFloating,
-    namedScratchpadAction,
-    namedScratchpadManageHook,
-  )
-import qualified XMonad.Util.NamedWindows as W
-import XMonad.Util.Run
-  ( safeSpawn,
-    spawnPipe,
-  )
-import XMonad.Util.SpawnOnce (spawnOnce)
-import XMonad.Util.WorkspaceCompare (getSortByIndex)
+import qualified Codec.Binary.UTF8.String            as UTF8
+import qualified Control.Exception                   as E
+import           Control.Monad                       (replicateM_)
+import qualified DBus                                as D
+import qualified DBus.Client                         as D
+import           Data.Foldable                       (traverse_)
+import qualified Data.Map                            as M
+import           Data.Monoid
+import           Graphics.X11.ExtraTypes.XF86
+import           System.Exit
+import           System.IO                           (hClose, hPutStr)
+import           XMonad
+import           XMonad.Actions.CycleWS              (Direction1D (..), WSType (..), findWorkspace)
+import           XMonad.Actions.DynamicProjects      (Project (..), dynamicProjects, switchProjectPrompt)
+import           XMonad.Actions.DynamicWorkspaces    (removeWorkspace)
+import           XMonad.Actions.FloatKeys            (keysAbsResizeWindow, keysResizeWindow)
+import           XMonad.Actions.RotSlaves            (rotSlavesUp)
+import           XMonad.Actions.SpawnOn              (manageSpawn, spawnOn)
+import           XMonad.Actions.WithAll              (killAll)
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.EwmhDesktops           (ewmh, ewmhDesktopsEventHook, fullscreenEventHook)
+import           XMonad.Hooks.FadeInactive           (fadeInactiveLogHook)
+import           XMonad.Hooks.InsertPosition         (Focus (Newer), Position (Below), insertPosition)
+import           XMonad.Hooks.ManageDocks            (Direction2D (..), ToggleStruts (..), avoidStruts, docks,
+                                                      docksEventHook)
+import           XMonad.Hooks.ManageHelpers          (composeOne, doCenterFloat, doFullFloat, isDialog,
+                                                      isFullscreen, isInProperty, (-?>))
+import           XMonad.Hooks.UrgencyHook            (UrgencyHook (..), withUrgencyHook)
+import           XMonad.Layout.Gaps                  (gaps)
+import           XMonad.Layout.MultiToggle           (Toggle (..), mkToggle, single)
+import           XMonad.Layout.MultiToggle.Instances (StdTransformers (NBFULL))
+import           XMonad.Layout.NoBorders             (smartBorders)
+import           XMonad.Layout.PerWorkspace          (onWorkspace)
+import           XMonad.Layout.Spacing               (spacing)
+import           XMonad.Layout.ThreeColumns          (ThreeCol (..))
+import           XMonad.Prompt                       (XPConfig (..), XPPosition (CenteredAt), amberXPConfig)
+import qualified XMonad.StackSet                     as W
+import           XMonad.Util.EZConfig                (mkNamedKeymap)
+import           XMonad.Util.NamedActions            (NamedAction (..), addDescrKeys', addName, showKm,
+                                                      subtitle, (^++^))
+import           XMonad.Util.NamedScratchpad         (NamedScratchpad (..), customFloating, defaultFloating,
+                                                      namedScratchpadAction, namedScratchpadManageHook)
+import qualified XMonad.Util.NamedWindows            as W
+import           XMonad.Util.Run                     (safeSpawn, spawnPipe)
+import           XMonad.Util.SpawnOnce               (spawnOnce)
+import           XMonad.Util.WorkspaceCompare        (getSortByIndex)
 
 main :: IO ()
 main = mkDbusClient >>= main'
@@ -527,12 +465,10 @@ comWs = "com"
 
 wrkWs = "wrk"
 
-sysWs = "sys"
-
 etcWs = "etc"
 
 myWS :: [WorkspaceId]
-myWS = [webWs, ossWs, devWs, comWs, wrkWs, sysWs, etcWs]
+myWS = [webWs, ossWs, devWs, comWs, wrkWs, etcWs]
 
 ------------------------------------------------------------------------
 -- Dynamic Projects
@@ -548,13 +484,13 @@ projects =
       { projectName = ossWs,
         projectDirectory = "~/",
         projectStartHook = Just $ do
-          replicateM_ 2 (spawn myTerminal)
-          spawn $ myTerminal <> " -e home-manager edit"
+          replicateM_ 1 (spawn myTerminal)
+          spawn $ "emacs ~/nix-config"
       },
     Project
       { projectName = devWs,
         projectDirectory = "~/projects",
-        projectStartHook = Just . replicateM_ 2 $ spawn myTerminal
+        projectStartHook = Just . replicateM_ 1 $ spawn myTerminal
       },
     Project
       { projectName = comWs,
@@ -562,16 +498,13 @@ projects =
         projectStartHook = Just $ do
           spawn "telegram-desktop"
           spawn "signal-desktop --use-tray-icon"
+          spawn "slack"
+          spawn "discord"
       },
     Project
       { projectName = wrkWs,
         projectDirectory = "~/",
-        projectStartHook = Nothing -- Just $ spawn "firefox -P 'chatroulette'" -- -no-remote"
-      },
-    Project
-      { projectName = sysWs,
-        projectDirectory = "/etc/nixos/",
-        projectStartHook = Just . spawn $ myTerminal <> " -e sudo su"
+        projectStartHook = Nothing
       },
     Project
       { projectName = etcWs,
