@@ -478,7 +478,7 @@ projects =
   [ Project
       { projectName = webWs,
         projectDirectory = "~/",
-        projectStartHook = Just $ spawn "chromium --restore-last-session"
+        projectStartHook = Just $ spawn "firefox -P 'default'"
       },
     Project
       { projectName = ossWs,
@@ -497,9 +497,10 @@ projects =
         projectDirectory = "~/",
         projectStartHook = Just $ do
           spawn "telegram-desktop"
-          spawn "signal-desktop --use-tray-icon"
+          --spawn "signal-desktop --use-tray-icon"
+
           spawn "slack"
-          spawn "discord"
+          -- spawn "discord"
       },
     Project
       { projectName = wrkWs,

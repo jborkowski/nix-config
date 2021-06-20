@@ -12,6 +12,7 @@
   networking = {
     hostName = "monadic-killer";
     interfaces.wlo1.useDHCP = true;
+    interfaces.eno2.useDHCP = true;
   };
 
 

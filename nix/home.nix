@@ -20,7 +20,6 @@ let
     openCalendar = "${pkgs.gnome3.gnome-calendar}/bin/gnome-calendar";
   };
 
-
   terminal = [
       (import ./home/alacritty { fontSize = 8; inherit pkgs; })
       ./home/zsh
@@ -58,6 +57,7 @@ let
     coreutils
     zlib
     chromium
+    firefox
 
     nextcloud-client
 
@@ -115,23 +115,23 @@ let
     xclip                # clipboard support (also for neovim)
 
     # fixes the `ar` error required by cabal
-    binutils-unwrapped
+     binutils-unwrapped
   ];
 
   polybarPkgs = with pkgs; [
-    font-awesome-ttf      
-    material-design-icons 
+    font-awesome-ttf
+    material-design-icons
   ];
 
   xmonadPkgs = with pkgs; [
     networkmanager_dmenu
     networkmanagerapplet
-    nitrogen               
-    xcape                  
-    xorg.xkbcomp           
-    xorg.xmodmap           
+    nitrogen
+    xcape
+    xorg.xkbcomp
+    xorg.xmodmap
     xorg.xrandr
-    xorg.xbacklight 
+    xorg.xbacklight
   ];
 
   gnomePkgs = with pkgs.gnome3; [
@@ -162,13 +162,12 @@ in rec {
     rtags
     sloccount
 
-
     (callPackage ./home/nvim { inherit fetchGH; })
     ripgrep
     tmux
     sqlite
     stow
-    nixops
+    # nixops
     # sbt
     dbeaver
 

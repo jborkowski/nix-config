@@ -6,8 +6,8 @@ let
   wc      = "/run/current-system/sw/bin/wc";
 
   # Asus Z390
-  eth1  = "eno1";
-  wifi1 = "wlp1s0";
+  eth1  = "eno2";
+  wifi1 = "wlo1";
 
   # Apple MBP13 A1520
   wifi2 = "wlp3s0";

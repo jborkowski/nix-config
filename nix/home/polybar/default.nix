@@ -3,17 +3,6 @@
 let
   browser = "${pkgs.firefox-beta-bin}/bin/firefox";
 
-  xdgUtils = pkgs.xdg_utils.overrideAttrs (
-    old: {
-      nativeBuildInputs = old.nativeBuildInputs or [] ++ [ pkgs.makeWrapper ];
-      postInstall = old.postInstall + "\n" + ''
-        wrapProgram $out/bin/xdg-open --suffix PATH : /run/current-system/sw/bin --suffix BROWSER : ${browser}
-      '';
-    }
-  );
-
-  openGithub = "${xdgUtils}/bin/xdg-open https\\://github.com/notifications";
-
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
     githubSupport = true;
@@ -46,14 +35,6 @@ let
     label = %{A1:${openCalendar}:}%time%%{A}
   '';
 
-  github = ''
-    [module/clickable-github]
-    inherit = module/github
-    token = ''${file:${config.xdg.configHome}/polybar/github-notifications-token}
-    user = gvolpe
-    label = %{A1:${openGithub}:}  %notifications%%{A}
-  '';
-
   mpris = ''
     [module/mpris]
     type = custom/script
@@ -72,11 +53,9 @@ let
     tail = true
   '';
 
-  customMods = mainBar + bctl + github + mpris + xmonad;
+  customMods = mainBar + bctl + cal + mpris + xmonad;
 in
 {
-  xdg.configFile."polybar/github-notifications-token".source = ../secrets/github-notifications-token;
-
   services.polybar = {
     enable = true;
     package = mypolybar;
