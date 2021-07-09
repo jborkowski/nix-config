@@ -19,7 +19,7 @@ in
 
   programs.zsh = rec {
     enable = true;
-    dotDir = "${config.xdg.dataHome}/.config/zsh";
+    dotDir = "/${config.xdg.dataHome}/.config/zsh";
     enableCompletion = false;
     enableAutosuggestions = true;
 

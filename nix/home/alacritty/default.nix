@@ -10,6 +10,26 @@
         duration = 5;
         color = "#ffffff";
       };
+      key_bindings = [
+        {
+          key = "J";
+          mods = "Control";
+          action = "ScrollPageUp";
+        }
+        {
+          key = "K";
+          mods = "Control";
+          action = "ScrollPageDown";
+        }
+      ];
+
+      shell = {
+        program = "${pkgs.zsh}/bin/zsh";
+        args = [
+          "-c"
+          "tmux"
+        ];
+      };
 
       # Doom theme alacritty
       # https://user-images.githubusercontent.com/15976214/71608435-55326c00-2b4f-11ea-93e0-c99cd1aa7b9f.png
@@ -39,7 +59,6 @@
         size = fontSize;
       };
       selection.save_to_clipboard = true;
-      shell.program = "${pkgs.zsh}/bin/zsh";
       window = {
         decorations = "full";
         padding = {

@@ -154,7 +154,7 @@ in rec {
   imports = terminal ++ editor ++ wm ++ misc ++ dev;
 
   programs.direnv.enable = true;
-  programs.direnv.enableNixDirenvIntegration = true;
+  programs.direnv.nix-direnv.enable = true;
 
   home.packages = with pkgs; [
     direnv
