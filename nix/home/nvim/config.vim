@@ -31,7 +31,9 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>h <Plug>AirlineSelectPrevTab
 nmap <leader>l <Plug>AirlineSelectNextTab
 nmap <leader><left> <Plug>AirlineSelectPrevTab
+nmap gt <Plug>AirlineSelectPrevTab
 nmap <leader><right> <Plug>AirlineSelectNextTab
+nmap gT <Plug>AirlineSelectNextTab
 set nocompatible
 set clipboard=unnamed
 

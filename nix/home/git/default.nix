@@ -1,5 +1,23 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
+let
+  gitConfig = {
+    core = {
+      editor = "nvim";
+    };
+    init.defaultBranch = "main";
+    merge.tool = "vimdiff";
+    mergetool = {
+      cmd    = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
+      prompt = false;
+    };
+    pull.rebase = false;
+    protocol.keybase.allow = "always";
+    submodule = {
+      recurse = true;
+    };
+  };
+in
 {
   home.packages = with pkgs; [
   ];
@@ -36,27 +54,17 @@
       "result"
       "result-*"
       "tags"
-      "/.emacs.desktop"
-      "/.emacs.desktop.lock"
-      "auto-save-list"
-      "tramp"
-      ".org-id-locations"
-      "*_archive"
-      "*_flymake.*"
-      "*.rel"
-      ".cask/"
-      "dist/"
-      "flycheck_*.el"
-      "/server/"
-      ".projectile"
-      ".dir-locals.el"
-      ".metals/"
-      ".bloop/"
-      "project/metals.sbt"
-      ".config/zsh/history"
+      "*.bloop"
+      "*.bsp"
+      "*.metals"
+      "*.metals.sbt"
+      "*metals.sbt"
+      "*hie.yaml"      # ghcide files
+      "*.mill-version" # used by metals
+      "*.jvmopts"      # should be local to every project
     ];
     aliases = {
-      amend = "commit --amend -C HEAD";
+      amend = "commit --amend -m";
       co    = "checkout";
       ci    = "commit";
       s     = "status";
@@ -65,12 +73,6 @@
       pr    = "pull --rebase";
       l     = "log --graph --pretty='%Cred%h%Creset - %C(bold blue)<%an>%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)' --abbrev-commit --date=relative";
     };
-    extraConfig = {
-      core.editor = "nvim";
-      protocol.keybase.allow = "always";
-      submodule = {
-        recurse = true;
-      };
-    };
+    extraConfig = gitConfig;
   };
 }

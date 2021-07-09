@@ -1,30 +1,14 @@
 # My Nix configuration
-
-## NixOS configuration
-Clone repository 
-```
-git clone https://github.com/jborkowski/nix-config.git ~/
-```
-Add and update channels:
-```
-$ nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
-$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz home-manager
-$ nix-channel --update
-```
-Install Home Manager
-```
-$ mkdir -p $HOME/.config/nixpkgs/
-$ nix-shell '<home-manager>' -A install
-```
-Make symlinks
-```
-$ sudo ln -s ~/nix-config/nix/home.nix ~/.config/nixpkgs/home.nix
-$ sudo ln -s ~/nix-config/nixos/machine/a1502.nix /etc/nixos/configuration.nix
-```
+## How to use
 
 ```
-sudo nixos-rebuild switch
-home-manager switch
+ln -s /home/jobo/nix-config/nixos/machine/a1502.nix configuration.nix
+
+
+# Manual steps
+mkdir -p $HOME/.config/polybar/logs
+touch $HOME/.config/polybar/logs/bottom.log
+touch $HOME/.config/polybar/logs/top.log
+mkdir -p $HOME/.cache/fzf-hoogle
+touch $HOME/.cache/fzf-hoogle/cache.json
 ```
-
-

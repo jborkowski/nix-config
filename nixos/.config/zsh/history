@@ -1,0 +1,80 @@
+vim openvpn.nix
+cd
+vim ../nixos-configuration/asus-z390.nix
+sudo nixos-rebuild switch
+ks
+ll
+vim openvpn.nix
+sudo nixos-rebuild switch
+vim openvpn.nix
+sudo nixos-rebuild switch
+openvpn
+sudo nixos-rebuild switch
+vim openvpn.nix
+sudo nixos-rebuild switch
+systemctl status cortb
+sudo systemctl restart cortb
+sudo nixos-rebuild switch
+cp i3.nix openvpn
+mv openvpn openvpn.nix
+vim openvpn.nix
+tmux
+ll
+cd nixos
+ls
+vim i3.nix
+nextcloud --background
+sudo nixos-rebuild switch 
+touch PyURxvtMeta8
+vim PyURxvtMeta8
+python3 PyURxvtMeta8
+xrdb xresources
+vim xresources
+vim i3.nix
+sudo nixos-rebuild switch 
+ll
+vim i3.nix
+python3 PyURxvtMeta8
+xrdb <(python3 PyURxvtMeta8)
+dasd
+
+
+exit
+: 1610464092:0;cd ..
+: 1610464103:0;mkdir wallpapers
+: 1610464117:0;mv pexels-magda-ehlers-1599452.jpg wallpapers
+: 1610464201:0;sudo su
+: 1610465104:0;home-manager switch
+: 1610465177:0;tmux
+: 1610465719:0;home-manager switch
+: 1610484181:0;cd nixos
+: 1610484182:0;ll
+: 1610484314:0;sudo su
+: 1610484495:0;redshift
+: 1610484773:0;sudo su
+: 1610484927:0;systemctl --user status redshift\
+
+: 1610484950:0;systemctl --user start redshift\
+
+: 1610485112:0;xbacklight
+: 1610485159:0;sudo su
+: 1610485484:0;light -A 30
+: 1610485488:0;light -U 30
+: 1610485520:0;systemctl --user start light\
+
+: 1610485548:0;brightnessctl
+: 1610485604:0;brightnessctl 50-
+: 1610485624:0;brightnessctl set 10-
+: 1610485637:0;brightnessctl set 50-
+: 1610485673:0;sudo su-
+: 1610485685:0;sudo su
+: 1610485767:0;brightnessctl set 50-
+: 1610486016:0;home-manager switch
+: 1610486545:0;xrandr --list
+: 1610486549:0;xrandr 
+: 1610486702:0;copy
+: 1610487197:0;home-manager switch
+: 1610487217:0;mkdir ~/Screenshots
+: 1610487219:0;home-manager switch
+: 1610487252:0;ll
+: 1610487255:0;cd
