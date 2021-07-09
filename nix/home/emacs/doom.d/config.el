@@ -92,5 +92,67 @@
          )))
 
 (setenv "PATH" (concat (getenv "PATH") ":/$HOME/.cabal/bin:/$HOME/.ghcup/bin"))
+;;;;;;;;;;;;
+;; direnv ;;
+;;;;;;;;;;;;
+
+(add-hook 'before-hack-local-variables-hook #'direnv-update-environment)
+
+
+;; Autocompletion(company)
+(setq company-idle-delay 0.5
+      company-minimum-prefix-length 2
+      ;; company-show-numbers t
+      )
+
+
+;; lsp-ui
+(after! lsp-ui
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-glance 1
+        lsp-ui-doc-delay 0.5
+        lsp-ui-doc-include-signature t
+        lsp-ui-doc-position 'Top
+        lsp-ui-doc-border "#fdf5b1"
+        lsp-ui-doc-max-width 65
+        lsp-ui-doc-max-height 70
+        lsp-ui-sideline-enable t
+        lsp-ui-sideline-ignore-duplicate t
+        lsp-ui-peek-enable t
+        lsp-ui-flycheck-enable -1)
+
+  (add-to-list 'lsp-ui-doc-frame-parameters '(left-fringe . 0))
+)
+
+;;;;;;;;;;;;;
+;; haskell ;;
+;;;;;;;;;;;;;
+(map! :leader
+      (:after lsp-mode
+       (:prefix ("l" . "LSP")
+          :desc "Restart LSP server" "r" #'lsp-workspace-restart
+          :desc "Excute code action" "a" #'lsp-execute-code-action
+          :desc "Go to definition" "d" #'lsp-find-definition
+          :desc "Toggle doc mode" "d" #'lsp-ui-doc-mode
+          (:prefix ("u" . "LSP UI")
+            :desc "Toggle doc mode" "d" #'lsp-ui-doc-mode
+            :desc "Toggle sideline mode"  "s" #'lsp-ui-sideline-mode
+            :desc "Glance at doc" "g" #'lsp-ui-doc-glance
+            :desc "Toggle imenu"  "i" #'lsp-ui-imenu
+            )
+          )))
 
 (setq haskell-stylish-on-save t)
+
+;; (use-package lsp-haskell
+;;
+;;  :ensure t
+;;  :config
+;;  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+;;  (setq lsp-haskell-process-args-hie '("-d"))
+;;  ;; Comment/uncomment this line to see interactions between lsp client/server.
+;;  ;; (setq lsp-log-io t)
+;;  )
+;; (after! lsp-haskell
+;;   (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+;; )

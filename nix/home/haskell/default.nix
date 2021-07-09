@@ -3,6 +3,7 @@
 let
   sources = import ../../sources.nix;
   easy-ps = import sources.easy-purescript-nix {};
+  zghc = pkgs.haskellPackages.ghc.withPackages (hp: with hp; [ pkgs.zlib.dev ]);
 in {
 
   home.packages = with pkgs.haskellPackages; [
@@ -11,9 +12,8 @@ in {
     nix-tree
 
     cabal-install
-    ghc
-    haskell-language-server
-
+    # haskell-language-server
+    zghc
     hlint
 
     hasktags

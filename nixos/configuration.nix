@@ -4,8 +4,9 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
-      ./machine/a1502.nix
+      ./machine/z390.nix
       ./wm/xmonad.nix
+      ./ledger.nix
     ];
 
   time.timeZone = "Europe/Warsaw";
@@ -164,13 +165,16 @@
         };
       };
     };
+    ledger.enable = true;
   };
+
+  users.groups.plugdev = {};
 
   # Define a user account.
   users.users.jobo = {
     isNormalUser = true;
     group = "users";
-    extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "docker" "plugdev" ];
     createHome = true;
     uid = 1000;
     shell = pkgs.zsh;

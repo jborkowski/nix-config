@@ -46,6 +46,7 @@ import           XMonad.Util.Run                     (safeSpawn, spawnPipe)
 import           XMonad.Util.SpawnOnce               (spawnOnce)
 import           XMonad.Util.WorkspaceCompare        (getSortByIndex)
 
+
 main :: IO ()
 main = mkDbusClient >>= main'
 
@@ -392,6 +393,8 @@ vlc = ClassApp "Vlc" "vlc"
 
 yad = ClassApp "Yad" "yad --text-info --text 'XMonad'"
 
+steam = ClassApp "Steam" "steam"
+
 myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
   where
     isBrowserDialog = isDialog <&&> className =? "Brave-browser"
@@ -415,7 +418,8 @@ myManageHook = manageApps <+> manageSpawn <+> manageScratchpads
               eog,
               nautilus,
               pavuctrl,
-              scr
+              scr,
+              steam
             ]
             -?> doCenterFloat,
           match [btm, evince, spotify, vlc, yad] -?> doFullFloat,
@@ -490,7 +494,10 @@ projects =
     Project
       { projectName = devWs,
         projectDirectory = "~/projects",
-        projectStartHook = Just . replicateM_ 1 $ spawn myTerminal
+        projectStartHook = Just $ do
+          replicateM_ 1 $ spawn myTerminal
+          spawn $ "emacs ~/projects"
+
       },
     Project
       { projectName = comWs,
@@ -500,7 +507,7 @@ projects =
           --spawn "signal-desktop --use-tray-icon"
 
           spawn "slack"
-          -- spawn "discord"
+          spawn "Discord"
       },
     Project
       { projectName = wrkWs,

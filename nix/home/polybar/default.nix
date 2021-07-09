@@ -1,8 +1,6 @@
 { mainBar, openCalendar, config, pkgs, ... }:
 
 let
-  browser = "${pkgs.firefox-beta-bin}/bin/firefox";
-
   mypolybar = pkgs.polybar.override {
     alsaSupport   = true;
     githubSupport = true;
@@ -63,7 +61,6 @@ in
     extraConfig = bars + colors + mods1 + mods2 + customMods;
     script = ''
       export MONITOR=$(${monitorScript}/bin/monitor)
-      =eDP-1
       echo "Running polybar on $MONITOR"
       export ETH_INTERFACE=$(${networkScript}/bin/check-network eth)
       export WIFI_INTERFACE=$(${networkScript}/bin/check-network wifi)

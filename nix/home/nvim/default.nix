@@ -152,6 +152,7 @@ in
         { name = "semshi"; }
         { name = "purescript-vim"; }
         { name = "psc-ide-vim"; }
+        { name = "vim-stylish-haskell"; }
       ];
 
       pathogen.knownPlugins = vimPlugins;

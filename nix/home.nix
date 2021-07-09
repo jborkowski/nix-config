@@ -39,6 +39,7 @@ let
       ./home/irc
       ./home/networkmanager
       ./home/udiskie
+      ./home/steam
       ./scripts.nix
   ];
   dev = [
@@ -49,13 +50,13 @@ let
   defaultPkgs = with pkgs; [
     _1password
     _1password-gui
-
+    ledger-live-desktop
     anki
 
     htop
 
     coreutils
-    zlib
+    zlib.dev
     chromium
     firefox
 

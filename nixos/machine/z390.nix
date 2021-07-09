@@ -15,5 +15,11 @@
     interfaces.eno2.useDHCP = true;
   };
 
-
+  hardware = {
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+    pulseaudio.support32Bit = true;
+  };
 }
