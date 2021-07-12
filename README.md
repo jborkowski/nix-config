@@ -3,7 +3,7 @@
 
 ```
 ln -s /home/jobo/nix-config/nixos/machine/a1502.nix configuration.nix
-
+ln -s home.nix ~/.config/nixpkgs/home.nix
 
 # Manual steps
 mkdir -p $HOME/.config/polybar/logs
