@@ -1,44 +1,4 @@
-"Colorscheme
-"-------------------------
-" set background=dark
-" colorscheme solarized
 
-let mapleader=","
-
-let g:org_export_emacs="~/.nix-profile/bin/emacs"
-
-set encoding=utf-8
-
-" let g:airline_theme='solarized'
-" let g:airline_solarized_bg='dark'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-:nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>h <Plug>AirlineSelectPrevTab
-nmap <leader>l <Plug>AirlineSelectNextTab
-nmap <leader><left> <Plug>AirlineSelectPrevTab
-nmap gt <Plug>AirlineSelectPrevTab
-nmap <leader><right> <Plug>AirlineSelectNextTab
-nmap gT <Plug>AirlineSelectNextTab
-set nocompatible
-set clipboard=unnamed
-
-"Standard vimrc stuff
-"-------------------------
 filetype plugin indent on
 set backspace=indent,eol,start
 "set backup
@@ -64,6 +24,44 @@ set softtabstop=2
 set t_Co=256
 set ts=2
 syntax enable
+set encoding=utf-8
+set nocompatible
+set clipboard=unnamed
+
+let mapleader=","
+let g:org_export_emacs="~/.nix-profile/bin/emacs"
+let g:rg_command = 'rg --vimgrep -S'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+nnoremap <leader>h  :History<CR>
+nnoremap <leader>m  :Marks<CR>
+nnoremap <leader>S  :Snippets<CR>
+
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>h <Plug>AirlineSelectPrevTab
+nmap <leader>l <Plug>AirlineSelectNextTab
+nmap <leader><left> <Plug>AirlineSelectPrevTab
+nmap gt <Plug>AirlineSelectPrevTab
+nmap <leader><right> <Plug>AirlineSelectNextTab
+nmap gT <Plug>AirlineSelectNextTab
+
+
+"Standard vimrc stuff
+"-------------------------
 
 "Convenience
 "-------------------------
@@ -81,8 +79,23 @@ map <leader>w :%s/\s\+$//e<CR>
 "C-x as a shortcut for exiting Goyo, save the file and exit Vim altogether
 :map <C-X> <ESC>:x<CR>:x<CR>
 
-"Mouse
-"-------------------------
+
+function! GotoJump()
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<c-i>"
+    else
+      execute "normal " . j . "\<c-o>"
+    endif
+  endif
+endfunction
+nmap <Leader>j :call GotoJump()<CR>
+
+
 set mouse=a
 if !has('nvim')
   set ttymouse=sgr
@@ -124,18 +137,6 @@ endif
 cnoreabbrev Ag Ag!
 nnoremap <Leader>a :Ag!<Space>
 
-"Use a better relevance algorithm
-if !has('python')
-  echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
-
-"Autocomplete
-"-------------------------
-"let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_tags_caching_limit_file_size = 10000000
-
 "Use a custom <CR> handler
 "inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 " function! s:my_cr_function()
@@ -154,18 +155,21 @@ endif
 " <BS>: delete backword char
 " inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 
-"NERDTree
+" NERDTree
 "-------------------------
 map <leader>\ :NERDTreeToggle<CR>
 let NERDTreeIgnore = [ '\.js_dyn_o', '\.js_hi', '\.js_o', '\.js_dyn_hi', '\.dyn_hi', '\.dyn_o', '\.hi', '\.o', '\.p_hi', '\.p_o' ]
 "Automatically close if NERDTree is the only buffer left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-"Haskell
+" FZF Hoogle
 "-------------------------
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <F3> :HdevtoolsInfo<CR>
+let g:hoogle_fzf_cache_file = '~/.cache/fzf-hoogle/cache.json'
+nnoremap <leader>h :Hoogle <CR>
+
+" vim-which-key
+"-------------------------
+nnoremap <silent> <leader> :WhichKey ','<CR>
 
 "Saving
 "-------------------------
@@ -181,27 +185,6 @@ command -nargs=0 -bar Update if &modified
 "<C-s> to save
 nnoremap <silent> <C-s> :<C-u>Update<CR>
 inoremap <C-s> <C-o>:Update<CR>
-
-"ALE
-"-------------------------
-"let g:ale_linters = { 'haskell': ['hlint'] }
-"let g:ale_lint_on_save = 1
-"let g:ale_lint_on_text_changed = 0
-"nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-"Scripts
-"-------------------------
-"Sort haskell imports ignoring the word 'qualified'
-vnoremap <leader>m :<C-u>*s/qualified \(.*\)/\1 [qualified]/g <CR> gv :<C-u>*sort <CR> gv :<C-u>*s/import \(.*\) \[qualified\]/import qualified \1/g"<CR>
-"Convert CSS to Clay
-vnoremap <leader>c :s/-\(.\)/\U\1/g<CR> gv :s/: / /g <CR> gv :s/\(\d\+\)px/(px \1)/g<CR> gv :s/;//g<CR> gv :s/\(\#.*\>\)/"\1"/g<CR> gv :s/\(\d\+\)%/(pct \1)/g<CR>
-"Format JSON
-map <leader>jt !python -m json.tool<CR>
-"Format JavaScript
-map <leader>jf <Esc>:let @c = line('.')<CR>:let @d = col('.')<CR>:w<CR>:%!~/.vim/jsbeautify.py -i 2 -n %<CR>:w<CR>:call cursor (@c, @d)<CR>
-let g:ctrlp_working_path_mode = 'rw'
-"Run HLint
-nnoremap <C-h> :!hlint %<CR>
 
 "TODO
 "-------------------------

@@ -6,21 +6,23 @@ let
       ./home/zsh
       ./home/tmux
   ];
-  
+
   editor  = [
   #  (import ./home/emacs { inherit pkgs; })
+    ./home/nvim
   #  (import ./home/vscode { inherit pkgs; } )
   ];
-  
+
   misc = [
       ./home/git
   ];
- 
+
   dev = [
       ./home/haskell
   ];
 
   defaultPkgs = with pkgs; [
+    ag
     anki
 
     htop
@@ -31,7 +33,6 @@ let
     gnumake
     rtags
 
-    (callPackage ./home/nvim { inherit fetchGH; })
     tmux
     sqlite
     stow

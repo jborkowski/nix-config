@@ -1,6 +1,3 @@
-"Copy pasted from https://github.com/neoclide/coc.nvim
-
-
 "-------------------------
 " TextEdit might fail if hidden is not set.
 "Coq
