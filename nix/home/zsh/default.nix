@@ -4,7 +4,6 @@ let
   shellAliases = {
     l = "exa";
     ls = "exa";
-    copy = "xclip -i -selection clipboard";
     g = "git";
     e = "eval $EDITOR";
     ee = "e (fzf)";
@@ -13,13 +12,12 @@ in
 {
   programs.broot = {
     enable = true;
-    enableBashIntegration = true;
     enableZshIntegration = true;
   };
 
   programs.zsh = rec {
     enable = true;
-    dotDir = "/${config.xdg.dataHome}/.config/zsh";
+    dotDir = ".config/zsh";
     enableCompletion = false;
     enableAutosuggestions = true;
 
@@ -39,7 +37,7 @@ in
       enable = true;
       theme = "robbyrussell";
       custom = "${dotDir}/functions";
-      plugins = ["git" "rbenv" "gitignore" "sbt" "scala" "mvn" "cp" "history" "rsync" "vagrant" ];
+      plugins = ["git" "brew" "cabal" "docker" "docker-compose" "emacs" "gitignore"];
     };
 
     plugins = [
@@ -53,6 +51,11 @@ in
         };
       }
     ];
+
+    localVariables = {
+      PATH="$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:/Users/jobo/.ghcup/bin:$PATH";
+      NIX_PATH="$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels";
+    };
 
   };
   
@@ -72,5 +75,4 @@ in
   programs.jq = {
     enable = true;
   };
-
 }

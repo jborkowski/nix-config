@@ -3,7 +3,7 @@
 let
 
   terminal = [
-     # ./home/zsh
+      ./home/zsh
       ./home/tmux
   ];
   
