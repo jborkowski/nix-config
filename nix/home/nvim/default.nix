@@ -13,7 +13,6 @@ let
 
   myVimPlugins = with plugins; [
     nord-vim
-    psc-ide-vim
     purescript-vim
     doom-one
     goyo                # Distraction free writing

@@ -24,7 +24,7 @@ in {
     # ormolu
 
     # purescript
-    easy-ps.purs-0_13_8
+    easy-ps.purs-0_14_1
     easy-ps.spago
     easy-ps.zephyr
     easy-ps.purty
