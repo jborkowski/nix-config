@@ -27,4 +27,18 @@
   };
 
   "yank.highlight.duration" = 700;
+
+  "purescript" = {
+    "command" = "purescript-language-server";
+    "args" = ["--stdio"];
+    "filetypes" = ["purescript"];
+    "trace.server" = "off";
+    "rootPatterns" = ["bower.json" "psc-package.json" "spago.dhall"];
+    "settings" = {
+      "purescript" = {
+        "addSpagoSources" = true;
+        "addNpmPath" = true; # Set to true if using a local purty install for formatting
+      };
+    };
+  };
 }

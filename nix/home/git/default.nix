@@ -42,6 +42,8 @@ in
       "*.v.d"
       "*.vo"
       "*~"
+      ".config"
+      ".ghcup"
       ".clean"
       ".direnv"
       ".envrc"

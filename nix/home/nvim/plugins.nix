@@ -117,4 +117,33 @@
         sha256 = "080h24fqv9gsv9ny33gxzsy03w9wyx1xw8f1xwqyll9c6hw62ygy";
       };
     };
+
+    doom-one = buildVimPluginFrom2Nix {
+      name = "doom-one";
+      src = fetchFromGitHub {
+        owner = "romgrk";
+        repo = "doom-one.vim";
+        rev = "80bba63483d33a0cfa270219e990e26919b3a87f";
+        sha256 = "16icxzm01lfilyr3h1dl1bv2rwsajp55ay018273inkbva5ycxza";
+      };
+    };
+
+    nord-vim = buildVimPluginFrom2Nix {
+      pname = "nord-vim";
+      version = "2020-07-06";
+      src = fetchFromGitHub {
+        owner = "arcticicestudio";
+        repo = "nord-vim";
+        rev = "57dffa746907e8ce5c4b520146ed0d89d3c29a51";
+        sha256 = "0xpz71rj74514789v6x9wrg95n8bsag8f5ygd7js40qrwpxq6b4j";        
+      };
+    };
+
+    purescript-vim = buildVimPlugin {
+      name = "purescript-vim";
+      src = builtins.fetchTarball {  
+        url = "https://github.com/raichoo/purescript-vim/archive/67ca4dc4a0291e5d8c8da48bffc0f3d2c9739e7f.tar.gz"; 
+        sha256 = "0428afn4l5m11p8barscs1xa52gippyyl50kz9dr2j57kgy43ya2"; 
+      }; 
+    }; 
 }

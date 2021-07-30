@@ -27,12 +27,20 @@ syntax enable
 set encoding=utf-8
 set nocompatible
 set clipboard=unnamed
+set clipboard+=unnamedplus
+
+colorscheme nord
+
+" let g:doom_one_terminal_colors = v:true
 
 let mapleader=","
 let g:org_export_emacs="~/.nix-profile/bin/emacs"
 let g:rg_command = 'rg --vimgrep -S'
-let g:airline_powerline_fonts=1
+
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'nord'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 if !exists('g:airline_symbols')
