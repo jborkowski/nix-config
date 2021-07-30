@@ -13,6 +13,8 @@ let
 
   myVimPlugins = with plugins; [
     nord-vim
+    psc-ide-vim
+    purescript-vim
     doom-one
     goyo                # Distraction free writing
     haskell-vim         # It’s the filetype plugin for Haskell that should ship with Vim.

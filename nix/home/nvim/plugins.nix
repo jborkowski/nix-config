@@ -36,17 +36,27 @@
       }) + "/plugins/nvim";
     };
 
-     psc-ide-vim = buildVimPluginFrom2Nix {
-       pname = "psc-ide-vim";
-       version = "2019-09-17";
-       src = fetchFromGitHub {
-         owner = "frigoeu";
-         repo = "psc-ide-vim";
-         rev = "5fb4e329e5c0c7d80f0356ab4028eee9c8bd3465";
-         sha256 = "0gzbxsq6wh8d9z9vyrff4hdpc66yg9y8hnxq4kjrz9qrccc75c1f";
+    psc-ide-vim = buildVimPluginFrom2Nix {
+      pname = "psc-ide-vim";
+      version = "2019-09-17";
+      src = fetchFromGitHub {
+        owner = "frigoeu";
+        repo = "psc-ide-vim";
+        rev = "5fb4e329e5c0c7d80f0356ab4028eee9c8bd3465";
+        sha256 = "0gzbxsq6wh8d9z9vyrff4hdpc66yg9y8hnxq4kjrz9qrccc75c1f";
        };
        meta.homepage = "https://github.com/frigoeu/psc-ide-vim/";
-     };
+    };
+
+    purescript-vim = buildVimPlugin {
+      name = "purescript-vim";
+      src = fetchFromGitHub {
+        owner = "purescript-contrib";
+        repo = "purescript-vim";
+        rev = "67ca4dc4a0291e5d8c8da48bffc0f3d2c9739e7f";
+        sha256 = "1insh39hzbynr6qxb215qxhpifl5m8i5i0d09a3b6v679i7s11i8";
+      };
+    };
 
     papercolor-theme = buildVimPluginFrom2Nix {
       name = "papercolor-theme";
@@ -139,11 +149,4 @@
       };
     };
 
-    purescript-vim = buildVimPlugin {
-      name = "purescript-vim";
-      src = builtins.fetchTarball {  
-        url = "https://github.com/raichoo/purescript-vim/archive/67ca4dc4a0291e5d8c8da48bffc0f3d2c9739e7f.tar.gz"; 
-        sha256 = "0428afn4l5m11p8barscs1xa52gippyyl50kz9dr2j57kgy43ya2"; 
-      }; 
-    }; 
 }
