@@ -9,6 +9,8 @@
 (setq user-full-name "Jonatan Borkowski"
       user-mail-address "jonatan.borkowski@pm.me")
 
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -28,8 +30,8 @@
 (setq doom-theme 'doom-one)
 
 ;;; Fonts
-(setq doom-font (font-spec :family "Fira Code" :size 18)
-      doom-variable-pitch-font (font-spec :family "Fira Code" :size 18))
+(setq doom-font (font-spec :family "Fira Code" :size 12)
+      doom-variable-pitch-font (font-spec :family "Fira Code" :size 10))
 
 (setq js-indent-level 2
       typescript-indent-level 2
@@ -40,7 +42,8 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/org"
+      org-roam-directory "~/roam")
 
 (setq deft-directory "~/org/"
       deft-extensions '("org", "txt", "md")
@@ -57,7 +60,6 @@
       org-journal-date-format "%a, %Y-%m-%d"
       org-journal-file-format "%Y-%m-%d.org")
 
-(setq org-roam-directory "~/roam")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -91,13 +93,15 @@
          :channels ("#haskell", "#nixos")
          )))
 
-(setenv "PATH" (concat (getenv "PATH") ":/$HOME/.cabal/bin:/$HOME/.ghcup/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/Users/jobo/.cabal/bin:/Users/jobo/.ghcup/bin:/Users/jobo/.nix-profile/bin"))
+
+(setq-default with-editor-emacsclient-executable "emacsclient")
+
 ;;;;;;;;;;;;
 ;; direnv ;;
 ;;;;;;;;;;;;
 
 (add-hook 'before-hack-local-variables-hook #'direnv-update-environment)
-
 
 ;; Autocompletion(company)
 (setq company-idle-delay 0.5
@@ -143,6 +147,7 @@
           )))
 
 (setq haskell-stylish-on-save t)
+
 
 ;; (use-package lsp-haskell
 ;;
